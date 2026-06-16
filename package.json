@@ -1,0 +1,36 @@
+{
+  "name": "class-bookings-with-stripe-pro-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync:themes": "node scripts/sync-themes.mjs",
+    "dev": "vite dev",
+    "build": "npm run sync:themes && vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.8",
+    "@sveltejs/kit": "^2.21.1",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@tailwindcss/vite": "^4.1.7",
+    "@types/node": "^22.15.21",
+    "mdsvex": "^0.12.6",
+    "svelte": "^5.33.14",
+    "svelte-check": "^4.2.1",
+    "tailwindcss": "^4.1.7",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.2.0",
+    "@netlify/functions": "^3.1.10",
+    "gsap": "^3.13.0",
+    "marked": "^15.0.11",
+    "gray-matter": "^4.0.3",
+    "jose": "^6.0.11",
+    "resend": "^4.5.1",
+    "stripe": "^18.1.0"
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "syncedAt": "2026-06-16T10:15:04.461Z",
+  "source": "local",
+  "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes",
+  "count": 22,
+  "themes": [
+    {
+      "slug": "atelier",
+      "name": "Atelier",
+      "description": "Editorial boutique card — warm terracotta tones, serif typography, and crafted workshop styling.",
+      "version": "1.0.0",
+      "provides": [
+        "booking-form",
+        "booking-status",
+        "style"
+      ],
+      "tags": [
+        "premium"
+      ],
+      "screenshotUrl": "/themes/atelier/screenshot.jpg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/atelier"
+    },
+    {
+      "slug": "custom-labels",
+      "name": "Custom Labels",
+      "description": "Labels only — changes the pay button text (no layout or CSS changes). Look for “Reserve & pay securely” on the submit button.",
+      "version": "1.0.0",
+      "provides": [
+        "labels"
+      ],
+      "tags": [
+        "basic"
+      ],
+      "screenshotUrl": "/themes/custom-labels/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/custom-labels"
+    },
+    {
+      "slug": "horizon",
+      "name": "Horizon",
+      "description": "Split-screen booking — dark branded panel with electric blue accents and a clean checkout column.",
+      "version": "1.0.0",
+      "provides": [
+        "booking-form",
+        "booking-status",
+        "style"
+      ],
+      "tags": [
+        "premium"
+      ],
+      "screenshotUrl": "/themes/horizon/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/horizon"
+    },
+    {
+      "slug": "lime",
+      "name": "Lime Checkout",
+      "description": "Bright lime two-column checkout — white cards, tab-style header, session panel, and order summary sidebar.",
+      "version": "1.0.0",
+      "provides": [
+        "booking-form",
+        "booking-status",
+        "style"
+      ],
+      "tags": [
+        "premium"
+      ],
+      "screenshotUrl": "/themes/lime/screenshot.jpg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/lime"
+    },
+    {
+      "slug": "noir",
+      "name": "Noir",
+      "description": "Dark asymmetric split — moody photography, gold accents, and evening creative-studio atmosphere.",
+      "version": "1.0.0",
+      "provides": [
+        "booking-form",
+        "booking-status",
+        "style"
+      ],
+      "tags": [
+        "premium"
+      ],
+      "screenshotUrl": "/themes/noir/screenshot.jpg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/noir"
+    },
+    {
+      "slug": "secure-checkout",
+      "name": "Secure Checkout",
+      "description": "Card hero art with a structured secure checkout panel and sectioned fields.",
+      "version": "1.0.0",
+      "provides": [
+        "booking-form",
+        "booking-status",
+        "style"
+      ],
+      "tags": [
+        "premium"
+      ],
+      "screenshotUrl": "/themes/secure-checkout/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/secure-checkout"
+    },
+    {
+      "slug": "single-column",
+      "name": "Single Column",
+      "description": "Stacked full-width fields with email first — one field per row.",
+      "version": "1.0.0",
+      "provides": [
+        "booking-form"
+      ],
+      "tags": [
+        "basic"
+      ],
+      "screenshotUrl": "/themes/single-column/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/single-column"
+    },
+    {
+      "slug": "styled-button",
+      "name": "Styled Button",
+      "description": "Keeps the default form layout and applies a green call-to-action button style.",
+      "version": "1.0.0",
+      "provides": [
+        "style"
+      ],
+      "tags": [
+        "basic"
+      ],
+      "screenshotUrl": "/themes/styled-button/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/styled-button"
+    },
+    {
+      "slug": "summit",
+      "name": "Summit",
+      "description": "Immersive alpine full-bleed layout with a frosted glass booking card and bold outdoor styling.",
+      "version": "1.0.0",
+      "provides": [
+        "booking-form",
+        "booking-status",
+        "style"
+      ],
+      "tags": [
+        "premium"
+      ],
+      "screenshotUrl": "/themes/summit/screenshot.jpg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/summit"
+    },
+    {
+      "slug": "tutorial-01-button-label",
+      "name": "Tutorial 01: Button label",
+      "description": "Change only the submit button text via bootstrap.php and the clasbpro_booking_labels filter. Look for “Complete my booking”.",
+      "version": "1.0.0",
+      "provides": [
+        "labels"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "screenshotUrl": "/themes/tutorial-01-button-label/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/tutorial-01-button-label"
+    },
+    {
+      "slug": "tutorial-02-field-labels",
+      "name": "Tutorial 02: Field labels",
+      "description": "Rename every form field label in bootstrap.php via clasbpro_booking_labels — name, email, date, seats, total, and more.",
+      "version": "1.0.0",
+      "provides": [
+        "labels"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "screenshotUrl": "/themes/tutorial-02-field-labels/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/tutorial-02-field-labels"
+    },
+    {
+      "slug": "tutorial-03-field-order",
+      "name": "Tutorial 03: Field order",
+      "description": "Reorder fields by moving $view->render() calls in booking-form.php — here date and seats come before name and email.",
+      "version": "1.0.0",
+      "provides": [
+        "booking-form"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "screenshotUrl": "/themes/tutorial-03-field-order/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/tutorial-03-field-order"
+    },
+    {
+      "slug": "tutorial-04-single-column",
+      "name": "Tutorial 04: Single column",
+      "description": "Stack every field full-width in one column — edit booking-form.php (remove the 2-column grid) and style.css.",
+      "version": "1.0.0",
+      "provides": [
+        "booking-form",
+        "style"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "screenshotUrl": "/themes/tutorial-04-single-column/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/tutorial-04-single-column"
+    },
+    {
+      "slug": "tutorial-05-dark-theme",
+      "name": "Tutorial 05: Dark theme",
+      "description": "Switch to a dark colour palette by overriding --cbfs-* CSS variables in style.css.",
+      "version": "1.0.0",
+      "provides": [
+        "style"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "screenshotUrl": "/themes/tutorial-05-dark-theme/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/tutorial-05-dark-theme"
+    },
+    {
+      "slug": "tutorial-06-typography",
+      "name": "Tutorial 06: Typography",
+      "description": "Change font family, style, size, and text colour in style.css. Uses Google Fonts via bootstrap.php.",
+      "version": "1.0.0",
+      "provides": [
+        "style"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "screenshotUrl": "/themes/tutorial-06-typography/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/tutorial-06-typography"
+    },
+    {
+      "slug": "tutorial-07-svg-accent",
+      "name": "Tutorial 07: SVG accent",
+      "description": "Drop a decorative SVG into booking-form.php — includes accent.svg.php and styles it in style.css.",
+      "version": "1.0.0",
+      "provides": [
+        "booking-form",
+        "style"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "screenshotUrl": "/themes/tutorial-07-svg-accent/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/tutorial-07-svg-accent"
+    },
+    {
+      "slug": "tutorial-08-square-flat",
+      "name": "Tutorial 08: Square & flat",
+      "description": "Remove rounded corners and shadows — set border-radius to 0 and box-shadow to none in style.css.",
+      "version": "1.0.0",
+      "provides": [
+        "style"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "screenshotUrl": "/themes/tutorial-08-square-flat/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/tutorial-08-square-flat"
+    },
+    {
+      "slug": "tutorial-09-narrow-form",
+      "name": "Tutorial 09: Narrow form",
+      "description": "Cap the form at 400px wide — ideal for a slim mobile-friendly column. Edit max-width in style.css.",
+      "version": "1.0.0",
+      "provides": [
+        "style"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "screenshotUrl": "/themes/tutorial-09-narrow-form/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/tutorial-09-narrow-form"
+    },
+    {
+      "slug": "tutorial-10-gradient-bg",
+      "name": "Tutorial 10: Gradient background",
+      "description": "Give the form surface a CSS linear-gradient background. Edit colours and angle in style.css.",
+      "version": "1.0.0",
+      "provides": [
+        "style"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "screenshotUrl": "/themes/tutorial-10-gradient-bg/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/tutorial-10-gradient-bg"
+    },
+    {
+      "slug": "tutorial-11-fullscreen-bg",
+      "name": "Tutorial 11: Fullscreen image",
+      "description": "Full-viewport form with a photo background — booking-form.php adds a backdrop; style.css and assets/background.jpg complete the look.",
+      "version": "1.0.0",
+      "provides": [
+        "booking-form",
+        "style"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "screenshotUrl": "/themes/tutorial-11-fullscreen-bg/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/tutorial-11-fullscreen-bg"
+    },
+    {
+      "slug": "wellspring",
+      "name": "Wellspring",
+      "description": "Centered premium card — soft grey canvas, magenta accents, and a calm clinical-studio booking flow.",
+      "version": "1.0.0",
+      "provides": [
+        "booking-form",
+        "booking-status",
+        "style"
+      ],
+      "tags": [
+        "premium"
+      ],
+      "screenshotUrl": "/themes/wellspring/screenshot.svg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/wellspring"
+    },
+    {
+      "slug": "yoga-split",
+      "name": "Yoga Split Screen",
+      "description": "Split-screen studio layout with hero photography and calm earth-tone styling.",
+      "version": "1.0.0",
+      "provides": [
+        "booking-form",
+        "booking-status",
+        "style"
+      ],
+      "tags": [
+        "premium"
+      ],
+      "screenshotUrl": "/themes/yoga-split/screenshot.jpg",
+      "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes/tree/master/yoga-split"
+    }
+  ]
+}
