@@ -19,7 +19,7 @@
 		<div class="block-card mt-10 p-8 text-left">
 			<h2 class="font-semibold text-fg">Before you open an issue</h2>
 			<ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-muted">
-				<li>Check the <a href="/docs">documentation</a> and video guides</li>
+				<li>Check the <a href="/docs">documentation</a></li>
 				<li>Include WordPress, PHP, and plugin version</li>
 				<li>Describe steps to reproduce for bugs</li>
 				<li>Purchase / download problems? Try <a href="/download">resend download</a> first</li>

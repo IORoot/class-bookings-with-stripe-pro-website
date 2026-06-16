@@ -3,7 +3,6 @@ title: Shortcode & Elementor
 description: Embed booking forms and status pages with shortcodes or the Elementor widget.
 order: 10
 category: Embedding
-video: resultPages
 ---
 
 ## Booking form shortcode
@@ -17,8 +16,6 @@ video: resultPages
 | `class_id` | Yes | WordPress post ID of the Class |
 
 Place on any page or post. The form loads class settings, availability, and Stripe Checkout flow.
-
-![Frontend Form](/docs/screenshots/screenshot-14.png)
 
 ### Multiple classes
 
@@ -51,12 +48,6 @@ If Elementor is active:
 3. Drag onto the canvas.
 4. Select **Class** in widget settings.
 
-![Shortcode](/docs/screenshots/screenshot-21.png)
-
-![Elementor widget — content](/docs/screenshots/screenshot-22.png)
-
-![Elementor widget — Style](/docs/screenshots/screenshot-23.png)
-
 Styling inherits your active **booking theme** (Pro) and theme CSS.
 
 ## Block editor
@@ -72,11 +63,6 @@ Use a **Shortcode** block and paste `[clasbpro_booking class_id="123"]`.
 - Template override filters
 
 See [Developer](/docs/developer).
-
-## Related videos
-
-- [Result pages, Developer & Help tabs](https://youtu.be/8mMCkKxIH-s) (featured above)
-- [Quick start](https://youtu.be/8B6TxXcDt2E)
 
 ## Related
 

@@ -3,14 +3,11 @@ title: Form extras
 description: Waiver checkbox, Mailchimp opt-in, custom ACF fields on the booking form, and merge tags for extras.
 order: 5
 category: Classes & booking
-video: extraFields
 ---
 
 ## Overview
 
 **Form extras** extend the booking form beyond name, email, date, and seats. Configure global defaults under **Settings → Form extras**, and add per-class fields with ACF.
-
-![Settings Page — Form extras](/docs/screenshots/screenshot-3.png)
 
 ## Waiver
 
@@ -53,8 +50,6 @@ Add fields that appear only on specific classes (or all classes via location rul
 
 Fields render on the booking form and store on the booking record.
 
-![ACF Field Group Rules](/docs/screenshots/screenshot-24.png)
-
 ### Use in emails
 
 | Syntax | Purpose |
@@ -64,8 +59,6 @@ Fields render on the booking form and store on the booking record.
 | `{field_xxxxx}` | Shorthand for same |
 
 See [Merge tags](/docs/merge-tags).
-
-**Video:** [Extra fields & ACF on the booking form](https://youtu.be/BivPyMuCGbQ)
 
 ## Validation
 

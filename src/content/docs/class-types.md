@@ -3,7 +3,6 @@ title: Class types
 description: Weekly recurring classes, one-off events, external booking links, capacity, and cancelled dates.
 order: 3
 category: Classes & booking
-video: weekly
 ---
 
 ## Booking types
@@ -27,10 +26,6 @@ When editing a **Class**, choose **Booking type**:
 
 The front-end form shows a **date dropdown** of upcoming occurrences with live capacity (paid bookings + active soft holds).
 
-![Class Edit Page — Weekly Classes](/docs/screenshots/screenshot-8.png)
-
-**Video:** [Creating a weekly repeating class](https://youtu.be/k5dlDzCyvoA)
-
 ## One-off events & workshops
 
 1. Set **Booking type** to **One-off event**.
@@ -39,10 +34,6 @@ The front-end form shows a **date dropdown** of upcoming occurrences with live c
 
 Ideal for retreats, pop-ups, or courses that do not repeat weekly.
 
-![Class Edit Page — One-off Events](/docs/screenshots/screenshot-9.png)
-
-**Video:** [One-off events & workshops](https://youtu.be/gzN3yzXWajo)
-
 ## External booking links
 
 1. Set **Booking type** to **External link**.
@@ -50,8 +41,6 @@ Ideal for retreats, pop-ups, or courses that do not repeat weekly.
 3. The form shows a **Continue to booking** button instead of Stripe Checkout.
 
 Use when payment or registration happens on Eventbrite, Mindbody, or another system.
-
-![Class Edit Page — External links](/docs/screenshots/screenshot-10.png)
 
 ## Capacity & soft holds
 

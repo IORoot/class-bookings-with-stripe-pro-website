@@ -3,7 +3,6 @@ title: Stripe setup
 description: API keys, Checkout Sessions, webhooks, test mode, and local development with Stripe CLI.
 order: 2
 category: Getting started
-video: webhook
 ---
 
 ## Overview
@@ -21,8 +20,6 @@ In **Class Bookings with Stripe → Settings → Stripe**:
 | **Mode** | Must match your keys: **Test** or **Live** |
 
 Never expose the secret key in front-end code or public repositories.
-
-![Settings Page — Stripe Settings](/docs/screenshots/screenshot-1.png)
 
 ## Webhook endpoint
 
@@ -83,8 +80,6 @@ For localhost without HTTPS, use **ngrok**, **Cloudflare Tunnel**, or similar �
 ## Currency
 
 Checkout uses **GBP** with amounts in pence from each class price field. Multi-currency is not configurable in v1.
-
-![Stripe Checkout Text](/docs/screenshots/screenshot-20.png)
 
 ## Troubleshooting
 

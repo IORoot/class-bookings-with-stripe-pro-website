@@ -21,8 +21,6 @@ Use weekly/one-off types when everyone shares the same start time. Use appointme
 5. Define **Slot rules** (see below).
 6. Publish and embed `[clasbpro_booking class_id="…"]`.
 
-![Class Edit Page — Weekly Classes](/docs/screenshots/screenshot-8.png)
-
 ## Slot rules
 
 Slot rules define *when* appointments are offered. They appear in the **Slot rules** panel on the class editor.
@@ -59,8 +57,6 @@ Availability subtracts paid bookings and active soft holds for that exact slot d
 3. Customer selects a day.
 4. **Available times** list shows open slots; booked slots are marked unavailable.
 5. Customer selects a slot, enters details, pays via Stripe Checkout.
-
-![Frontend Form](/docs/screenshots/screenshot-14.png)
 
 Labels like "Available", "Selected", and "Booked" can be customised via the `clasbpro_booking_labels` filter — see [Developer](/docs/developer).
 

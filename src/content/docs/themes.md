@@ -19,8 +19,6 @@ Browse the full gallery on the site: **[Booking themes](/themes)** — screensho
 
 Open **Class Bookings with Stripe → Themes** in the admin menu.
 
-![Customised Form Example 1](/docs/screenshots/screenshot-18.png)
-
 ## Themes admin screen
 
 The gallery lists every bundled pack with:
@@ -69,8 +67,6 @@ Utility / starter packs:
 | **custom-labels** | Label positioning example |
 
 **Tutorial series** (`tutorial-01` … `tutorial-11`) — incremental examples for learning the template system (button label, field order, dark theme, fullscreen background, etc.).
-
-![Customised Form Example 2](/docs/screenshots/screenshot-19.png)
 
 ## Template structure
 

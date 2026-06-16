@@ -9,8 +9,6 @@ category: Reference
 
 Place tags in **email subjects and bodies** (instant and scheduled). The plugin replaces them when sending.
 
-![Settings Page — Email Settings](/docs/screenshots/screenshot-2.png)
-
 Tags are case-sensitive and include curly braces: `{customer_name}`.
 
 ## Customer & booking

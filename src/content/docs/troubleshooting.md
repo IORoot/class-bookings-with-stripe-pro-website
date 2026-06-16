@@ -3,14 +3,11 @@ title: Troubleshooting
 description: Common issues — webhooks, pending bookings, email delivery, cron, and plugin conflicts.
 order: 14
 category: Reference
-video: fullSetup
 ---
 
 ## Bookings stuck on pending
 
 **Cause:** Stripe webhook not reaching WordPress or wrong signing secret.
-
-![Settings Page — Help](/docs/screenshots/screenshot-6.png)
 
 **Fix:**
 
@@ -82,7 +79,3 @@ Deactivate one plugin. Both register similar shortcodes and split data.
 ## Get help
 
 [GitHub Issues](https://github.com/IORoot/class-bookings-with-stripe-pro-website/issues) — include WP version, PHP version, plugin version, Stripe mode, and steps to reproduce.
-
-## Related video
-
-[Full installation & setup guide](https://youtu.be/7HBBGPZfZL0) (featured above)

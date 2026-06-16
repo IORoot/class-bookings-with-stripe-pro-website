@@ -14,7 +14,7 @@
 		<div class="min-w-0 flex-1">
 			<h1 class="text-display text-5xl">Documentation</h1>
 			<p class="mt-3 max-w-2xl text-muted">
-				Step-by-step guides, video tutorials, and Pro feature reference.
+				Step-by-step guides and Pro feature reference.
 			</p>
 
 			<div class="mt-10 grid gap-4 sm:grid-cols-2">

@@ -3,7 +3,6 @@ title: Emails
 description: Instant customer and admin emails on payment, template editing, merge tags, and SMTP delivery.
 order: 6
 category: Emails
-video: emails
 ---
 
 ## Overview
@@ -27,8 +26,6 @@ Sub-tabs typically include:
 - **Admin** — subject and body; set **Admin email address**
 
 Use the visual editor or HTML. Merge tags are listed in the accordion on the Emails tab and in [Merge tags](/docs/merge-tags).
-
-![Settings Page — Email Settings](/docs/screenshots/screenshot-2.png)
 
 ## Default subjects
 
@@ -72,11 +69,6 @@ Emails do **not** send on pending/expired bookings.
 ## Admin copies on scheduled emails (Pro)
 
 Scheduled rules can optionally **CC admin** on reminder/post-class sends — configured per rule in [Scheduled emails](/docs/scheduled-emails).
-
-## Related videos
-
-- [Email setup](https://youtu.be/dqg_DweIVAo) (featured above)
-- [Bookings list & reports](https://youtu.be/D2UpGlkhJWs) — see [Reports](/docs/reports)
 
 ## Related guides
 

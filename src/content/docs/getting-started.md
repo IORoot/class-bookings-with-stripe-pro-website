@@ -3,7 +3,6 @@ title: Getting started
 description: Install Class Bookings with Stripe Pro, requirements, activation, and your first paid booking.
 order: 1
 category: Getting started
-video: quickStart
 ---
 
 ## What you get with Pro
@@ -33,15 +32,11 @@ Class Bookings with Stripe Pro is a **standalone** WordPress plugin. You do not 
 3. Choose the ZIP and click **Install Now**, then **Activate**.
 4. You should see **Class Bookings with Stripe** in the admin menu.
 
-![Class Listing Page](/docs/screenshots/screenshot-7.png)
-
 If you previously had the free plugin active, **deactivate one version** — running both causes duplicate shortcodes and split booking data.
 
 ## First-time setup checklist
 
 1. **Stripe tab** — add publishable and secret keys; choose test or live mode. See [Stripe setup](/docs/stripe-setup).
-
-![Settings Page — Stripe Settings](/docs/screenshots/screenshot-1.png)
 
 2. **Webhook** — register the REST webhook URL in Stripe Dashboard. See [Stripe setup](/docs/stripe-setup).
 3. **Emails tab** — review customer and admin templates. See [Emails](/docs/emails).
@@ -70,8 +65,6 @@ Replace `123` with your class post ID.
 4. Complete Checkout on Stripe's hosted page.
 5. Confirm redirect to your **Booking Confirmed** result page and check **Class Bookings with Stripe → Bookings** for a paid entry.
 
-![Frontend Form](/docs/screenshots/screenshot-14.png)
-
 ## Settings overview
 
 Open **Class Bookings with Stripe → Settings**. Tabs include:
@@ -87,7 +80,6 @@ Open **Class Bookings with Stripe → Settings**. Tabs include:
 
 ## Related guides
 
-- [Full installation walkthrough](https://youtu.be/7HBBGPZfZL0) (video)
 - [Stripe webhook setup](/docs/stripe-setup)
 - [Pro appointments](/docs/appointments)
 - [Pro scheduled emails](/docs/scheduled-emails)

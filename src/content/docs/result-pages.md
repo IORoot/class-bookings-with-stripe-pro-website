@@ -17,8 +17,6 @@ Stripe Checkout redirects customers back to your WordPress site after payment or
 
 Find page IDs under **Settings → Pages** (or the Pages tab in settings).
 
-![Settings Page — Result pages](/docs/screenshots/screenshot-4.png)
-
 ## Success page behaviour
 
 1. Stripe redirects with session ID query args.
@@ -42,16 +40,6 @@ If you change slugs, flush permalinks (**Settings → Permalinks → Save**). St
 
 - **Cancelled** — no booking charge; hold expires via cron/webhook.
 - **Error** — show support link; check Stripe Dashboard and plugin bookings list.
-
-![Frontend Confirmation](/docs/screenshots/screenshot-15.png)
-
-![Frontend Error](/docs/screenshots/screenshot-16.png)
-
-![Frontend Cancelled](/docs/screenshots/screenshot-17.png)
-
-## Related video
-
-[Result pages, Developer & Help tabs](https://youtu.be/8mMCkKxIH-s)
 
 ## Related
 

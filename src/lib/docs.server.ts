@@ -6,7 +6,6 @@ export type DocMeta = {
 	description: string;
 	order: number;
 	category: string;
-	video?: string;
 	pro?: boolean;
 };
 
@@ -42,7 +41,6 @@ function parseDoc(path: string, raw: string | { default: string }): Doc {
 		description: (data.description as string) ?? '',
 		order: (data.order as number) ?? 99,
 		category: (data.category as string) ?? 'Guides',
-		video: data.video as string | undefined,
 		pro: Boolean(data.pro),
 		content: body
 	};

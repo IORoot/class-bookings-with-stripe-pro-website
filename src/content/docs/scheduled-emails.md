@@ -26,8 +26,6 @@ Scroll to **Scheduled emails** sections:
 - **Reminder email rules**
 - **Post-class email rules**
 
-![Settings Page — Email Settings](/docs/screenshots/screenshot-2.png)
-
 These apply to all classes unless a class overrides them.
 
 ### Per-class rules

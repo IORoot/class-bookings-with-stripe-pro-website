@@ -11,8 +11,6 @@ Namespace: **`clasbpro/v1`**
 
 Base URL: `https://yoursite.com/wp-json/clasbpro/v1`
 
-![Settings Page — Developer details](/docs/screenshots/screenshot-5.png)
-
 | Method | Path | Access | Purpose |
 |--------|------|--------|---------|
 | POST | `/checkout` | Public (nonce) | Create Stripe Checkout Session |
