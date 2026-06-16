@@ -87,10 +87,7 @@
 
 			<label class="w-full lg:w-48">
 				<span class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted">Sort</span>
-				<select
-					bind:value={sort}
-					class="w-full rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-fg focus:border-teal/50 focus:outline-none focus:ring-2 focus:ring-teal/20"
-				>
+				<select bind:value={sort} class="select-input">
 					<option value="category">Category, then name</option>
 					<option value="name-asc">Name A–Z</option>
 					<option value="name-desc">Name Z–A</option>
@@ -99,10 +96,7 @@
 
 			<label class="w-full lg:w-52">
 				<span class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted">Provides</span>
-				<select
-					bind:value={provideFilter}
-					class="w-full rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-fg focus:border-teal/50 focus:outline-none focus:ring-2 focus:ring-teal/20"
-				>
+				<select bind:value={provideFilter} class="select-input">
 					<option value="all">All components</option>
 					{#each allProvides as provide}
 						<option value={provide}>{provideLabels[provide as keyof typeof provideLabels] ?? provide}</option>
