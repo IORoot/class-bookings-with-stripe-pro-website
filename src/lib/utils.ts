@@ -12,7 +12,7 @@ export function renderMarkdown(source: string): string {
 export function enhanceDocImages(html: string): string {
 	return html.replace(
 		/<p><img src="([^"]+)" alt="([^"]*)"([^>]*)><\/p>/g,
-		'<figure class="doc-figure"><img src="$1" alt="$2"$3 loading="lazy" decoding="async" /><figcaption>$2</figcaption></figure>'
+		'<figure class="doc-figure"><a href="$1" target="_blank" rel="noopener noreferrer" class="doc-figure-link" aria-label="Open full-size image: $2"><img src="$1" alt="$2"$3 loading="lazy" decoding="async" /></a><figcaption>$2</figcaption></figure>'
 	);
 }
 

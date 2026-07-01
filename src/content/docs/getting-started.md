@@ -42,8 +42,6 @@ If you previously had the free plugin active, **deactivate one version** — run
 | 6. Embed the form | Page shortcode or Elementor | [Shortcodes](/docs/shortcodes) |
 | 7. Result pages | Created on activation; assign under Settings | [Result pages](/docs/settings-result-pages) |
 
-![Setup guide in Settings → Help](/docs/images/settings-help-setup.png)
-
 ## Create your first class (weekly example)
 
 1. Go to **Stripe Class Pro → Classes → Add New**.
