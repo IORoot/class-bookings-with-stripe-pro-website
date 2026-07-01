@@ -1,7 +1,7 @@
 ---
 title: Changelog
 description: Version history for Class Bookings with Stripe Pro.
-order: 15
+order: 92
 category: Reference
 ---
 
@@ -20,27 +20,32 @@ Initial Pro release.
 
 ### Front end
 
-- Booking form and status shortcodes
-- Elementor widget
+- Booking form, schedule calendar, and status shortcodes
+- Elementor widgets
 - Result pages on activation (confirmed, cancelled, error)
+- Global schedule calendar with per-class card styling
 
 ### Emails & marketing
 
 - Customer and admin instant emails with merge tags
+- Scheduled reminder and post-class emails (Pro)
+- Per-class email overrides
 - Mailchimp opt-in integration
 - Waiver and custom ACF form extras
+- Stripe promotion codes (coupons)
 
 ### Administration
 
-- Reports dashboard (yearly charts, upcoming attendance, guest lists)
-- Bookings list with pending / paid / expired states
+- Reports dashboard (summary, per-class charts, customers CSV)
+- Bookings list with email delivery status
+- Class and booking list tables with images
 - In-plugin Help and Developer tabs
 
 ### Pro features
 
-- **Appointments** — calendar UI, slot rules (recurring + one-off), per-slot capacity
-- **Scheduled emails** — reminder and post-class rules, queue, cron dispatch, per-class overrides, backfill and test tools
-- **Booking themes** — theme gallery, live preview, install/enable, 8+ production packs and tutorial series
+- **Appointments** — calendar UI, slot rules (recurring + one-off), per-slot pricing
+- **Scheduled emails** — queue, cron dispatch, backfill and test tools
+- **Booking themes** — theme gallery, live preview, install to theme, 8+ production packs
 
 ### Dependencies
 
@@ -48,4 +53,4 @@ Initial Pro release.
 
 ---
 
-Future versions are published to licence holders via download email while entitlement is active. See [Getting started](/docs/getting-started) for updates.
+Future versions are published to licence holders via download email while entitlement is active. See [Getting started](/docs/getting-started).

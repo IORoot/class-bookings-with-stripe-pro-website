@@ -16,6 +16,8 @@ const config = {
 			handleMissingId: 'ignore',
 			handleHttpError: ({ path, message }) => {
 				if (path.startsWith('/api/')) return;
+				// Doc screenshots are added to static/docs/images/ over time.
+				if (path.startsWith('/docs/images/')) return;
 				throw new Error(message);
 			}
 		}

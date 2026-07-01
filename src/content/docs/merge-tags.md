@@ -1,74 +1,64 @@
 ---
 title: Merge tags
-description: Placeholders for email templates — customer, class, booking, extras, and feedback URLs.
-order: 12
+description: Placeholders for email subjects and bodies, including ACF extras.
+order: 90
 category: Reference
 ---
 
-## Usage
+## Overview
 
-Place tags in **email subjects and bodies** (instant and scheduled). The plugin replaces them when sending.
+Merge tags are `{placeholder}` strings replaced when an email is sent or previewed. Use them in subjects and bodies under **Settings → Emails**, **Scheduled emails**, and **Class email** overrides.
 
-Tags are case-sensitive and include curly braces: `{customer_name}`.
+The admin UI lists available tags in an accordion on each email sub-tab.
 
-## Customer & booking
+## Standard tags
 
-| Tag | Description |
-|-----|-------------|
-| `{customer_name}` | Name from booking form |
-| `{customer_email}` | Email address |
-| `{booking_id}` | Internal ID (e.g. #123) |
-| `{seats}` | Number of places booked |
-| `{amount_total}` | Total charged (formatted GBP) |
-
-## Class & session
-
-| Tag | Description |
-|-----|-------------|
-| `{class_name}` | Class post title |
+| Tag | Output |
+|-----|--------|
+| `{customer_name}` | Booker’s name |
+| `{customer_email}` | Booker’s email |
+| `{class_name}` | Class title |
 | `{class_date}` | Formatted session date |
 | `{class_time}` | Start time |
-| `{location}` | Location string |
-| `{duration}` | Session duration |
-| `{price}` | Per-seat or display price |
-| `{slot_label}` | Appointment slot label (if set) |
-| `{description}` | Class description (plain text) |
+| `{location}` | Class or slot location |
+| `{slot_label}` | Appointment slot label |
+| `{duration}` | Duration in minutes |
+| `{price}` | Per-seat price (formatted) |
+| `{seats}` | Number of places booked |
+| `{amount_total}` | Total amount paid |
+| `{booking_id}` | Reference like `#123` |
+| `{description}` | Class description field |
+| `{extra_fields}` | Summary block of ACF answers |
 
-## Form extras
+## Stripe Checkout item title
 
-| Tag | Description |
-|-----|-------------|
-| `{extra_fields}` | HTML block summarising waiver, Mailchimp, ACF answers |
-| `{acf:field_xxxxx}` | Single ACF field (replace with your field key) |
-| `{field_xxxxx}` | Shorthand for same field key |
+Under **Settings → Stripe**, the line item template also supports:
 
-Create field keys in ACF → Field Groups. See [Form extras](/docs/form-extras).
+| Tag | Output |
+|-----|--------|
+| `{class_date_raw}` | Date in `Y-m-d` form |
 
-## Post-class & scheduled (Pro)
+Plus the standard class/customer tags listed above.
 
-| Tag | Description |
-|-----|-------------|
-| `{feedback_url}` | Link for post-class surveys (global default or per-rule override) |
+## ACF extra fields
 
-Used in [Scheduled emails](/docs/scheduled-emails) post-class rules.
+| Pattern | Example |
+|---------|---------|
+| `{acf:field_key}` | `{acf:field_abc123}` |
+| `{field_key}` | Shorthand when key is unique |
 
-## Example customer body
+See [Customising ACF](/docs/customising-acf).
 
-```html
-<p>Hi {customer_name},</p>
-<p>You're booked for <strong>{class_name}</strong> on {class_date} at {class_time}.</p>
-<p>Location: {location}</p>
-<p>Seats: {seats} · Total: {amount_total}</p>
-{extra_fields}
-```
+## Subjects vs bodies
 
-## Tips
+Tags work in **both** subject lines and body content. Test with **Send test email** on each tab — local test mode redirects delivery while showing the intended recipient in a banner.
 
-- Preview by sending a real test booking in Stripe test mode.
-- Missing tags render empty — check spelling.
-- HTML emails: use `<p>`, `<ul>`, simple styles only.
+## Scheduled emails
 
-## Related
+Reminder and post-class templates use the same tag set. Timing is based on class (or appointment slot) start/end, not tag choice.
 
-- [Emails](/docs/emails)
-- [Scheduled emails (Pro)](/docs/scheduled-emails)
+## See also
+
+- [Email settings](/docs/settings-emails)
+- [Scheduled emails](/docs/settings-scheduled-emails)
+- [Class emails](/docs/classes-emails)

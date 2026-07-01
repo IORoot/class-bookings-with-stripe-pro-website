@@ -1,17 +1,15 @@
 ---
 title: Getting started
-description: Install Class Bookings with Stripe Pro, requirements, activation, and your first paid booking.
+description: Install Class Bookings with Stripe Pro, requirements, and your first paid booking.
 order: 1
 category: Getting started
 ---
 
 ## What you get with Pro
 
-Class Bookings with Stripe Pro is a **standalone** WordPress plugin. You do not need the free WordPress.org version. Pro includes everything required to sell class places with Stripe Checkout, plus:
+Class Bookings with Stripe Pro is a **standalone** WordPress plugin. You do not need the free WordPress.org version. Pro includes Stripe Checkout booking, appointments, scheduled emails, booking form themes, reports, and more.
 
-- **Appointment booking** with calendar UI and slot rules
-- **Scheduled email rules** (reminders and post-class messages)
-- **Booking form themes** with live preview and one-click install
+![Plugin activated in WordPress admin](/docs/images/getting-started-activated.png)
 
 ## Requirements
 
@@ -20,36 +18,42 @@ Class Bookings with Stripe Pro is a **standalone** WordPress plugin. You do not 
 | WordPress | 6.0+ |
 | PHP | 7.4+ |
 | Stripe account | Publishable + secret keys, webhook signing secret |
-| ACF | Free or Pro (bundled ACF Free loads if ACF is not active) |
-| Elementor | Optional — for the Elementor widget only |
+| ACF | Free or Pro (bundled ACF Free loads if ACF is not already active) |
+| Elementor | Optional — for Elementor widgets only |
 
-**Recommended:** Reliable WordPress cron (real server cron triggering `wp-cron.php`) for scheduled emails and hold expiry.
+**Recommended:** Reliable WordPress cron (real server cron calling `wp-cron.php`) for scheduled emails and booking hold expiry.
 
 ## Install the plugin
 
 1. Purchase Pro and download the ZIP from your email link ([resend download](/download) if needed).
 2. In WordPress go to **Plugins → Add New → Upload Plugin**.
 3. Choose the ZIP and click **Install Now**, then **Activate**.
-4. You should see **Class Bookings with Stripe** in the admin menu.
+4. You should see **Stripe Class Pro** in the admin menu (Classes, Bookings, Reports, Settings, Themes).
 
 If you previously had the free plugin active, **deactivate one version** — running both causes duplicate shortcodes and split booking data.
 
 ## First-time setup checklist
 
-1. **Stripe tab** — add publishable and secret keys; choose test or live mode. See [Stripe setup](/docs/stripe-setup).
+| Step | Where | Guide |
+|------|-------|-------|
+| 1. Stripe keys & mode | **Settings → Stripe** | [Stripe settings](/docs/settings-stripe) |
+| 2. Webhook | Stripe Dashboard → endpoint URL from Settings | [Stripe settings](/docs/settings-stripe) |
+| 3. Email templates | **Settings → Emails** | [Email settings](/docs/settings-emails) |
+| 4. SMTP (recommended) | Host or plugin like WP Mail SMTP | [Troubleshooting](/docs/troubleshooting) |
+| 5. Create a class | **Classes → Add New** | [Classes overview](/docs/classes-overview) |
+| 6. Embed the form | Page shortcode or Elementor | [Shortcodes](/docs/shortcodes) |
+| 7. Result pages | Created on activation; assign under Settings | [Result pages](/docs/settings-result-pages) |
 
-2. **Webhook** — register the REST webhook URL in Stripe Dashboard. See [Stripe setup](/docs/stripe-setup).
-3. **Emails tab** — review customer and admin templates. See [Emails](/docs/emails).
-4. **Create a class** — **Class Bookings with Stripe → Classes → Add New**. See [Class types](/docs/class-types).
-5. **Embed the form** — shortcode or Elementor widget on a public page. See [Shortcode & Elementor](/docs/shortcode-elementor).
+![First-time setup checklist in Settings](/docs/images/getting-started-settings.png)
 
 ## Create your first class (weekly example)
 
-1. Add a new **Class** post.
-2. Set **Booking type** to **Weekly class**.
-3. Configure day, start time, duration, price (GBP), and capacity.
-4. Publish and note the post **ID** (visible in the URL or list table).
-5. Place on a page:
+1. Go to **Stripe Class Pro → Classes → Add New**.
+2. Set **Schedule type** to **Weekly class**.
+3. Configure day of week, start time, duration, price, and capacity.
+4. Ensure **Class active** is enabled and publish.
+5. Note the **Class ID** in the publish box (also shown in the class list).
+6. Add to a page:
 
 ```
 [clasbpro_booking class_id="123"]
@@ -59,28 +63,22 @@ Replace `123` with your class post ID.
 
 ## Test a booking
 
-1. Use **Stripe test keys** and [test card numbers](https://docs.stripe.com/testing).
-2. Open the page with the booking form in a private/incognito window.
-3. Pick a date, enter name and email, submit **Book & pay with Stripe**.
-4. Complete Checkout on Stripe's hosted page.
-5. Confirm redirect to your **Booking Confirmed** result page and check **Class Bookings with Stripe → Bookings** for a paid entry.
+1. Set **Settings → Stripe → Mode** to **Test**.
+2. Use [Stripe test card numbers](https://docs.stripe.com/testing#cards) (e.g. `4242 4242 4242 4242`).
+3. Complete checkout on your booking page.
+4. Confirm the booking appears under **Bookings** with status **Paid**.
+5. Check customer and admin emails (enable **Local test mode** under Settings → Emails if you want all mail redirected to one inbox).
 
-## Settings overview
+## Pro-only features
 
-Open **Class Bookings with Stripe → Settings**. Tabs include:
+These are not in the free WordPress.org plugin:
 
-| Tab | Purpose |
-|-----|---------|
-| **Stripe** | API keys, mode, webhook secret |
-| **Emails** | Instant confirmation templates + global scheduled rules (Pro) |
-| **Form extras** | Waiver, Mailchimp, global defaults |
-| **Pages** | Result page IDs (created on activation) |
-| **Developer** | REST routes, hooks, template overrides |
-| **Help** | In-plugin quick reference |
+- [Appointments](/docs/classes-appointments) — calendar UI and slot rules
+- [Scheduled emails](/docs/settings-scheduled-emails) — reminders and post-class messages
+- [Booking themes](/docs/themes) — gallery, live preview, install to theme
 
-## Related guides
+## See also
 
-- [Stripe webhook setup](/docs/stripe-setup)
-- [Pro appointments](/docs/appointments)
-- [Pro scheduled emails](/docs/scheduled-emails)
-- [Pro booking themes](/docs/themes)
+- [Stripe settings](/docs/settings-stripe)
+- [Shortcodes](/docs/shortcodes)
+- [Troubleshooting](/docs/troubleshooting)

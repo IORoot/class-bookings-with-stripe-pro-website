@@ -1,81 +1,73 @@
 ---
 title: Troubleshooting
-description: Common issues — webhooks, pending bookings, email delivery, cron, and plugin conflicts.
-order: 14
+description: Webhooks, email delivery, cron, bookings, and common errors.
+order: 91
 category: Reference
 ---
 
-## Bookings stuck on pending
+## Bookings stay pending after payment
 
-**Cause:** Stripe webhook not reaching WordPress or wrong signing secret.
+1. Confirm **webhook** is registered in Stripe with the exact URL from **Settings → Stripe**.
+2. Subscribe to `checkout.session.completed`, `checkout.session.expired`, and `checkout.session.async_payment_failed`.
+3. Paste the correct **signing secret** for test vs live mode.
+4. Check Stripe Dashboard → Webhooks → recent deliveries for `400` or `invalid_signature`.
+5. On local dev, use Stripe CLI forwarding — [Stripe settings](/docs/settings-stripe).
 
-**Fix:**
+The success page polls `/booking-status` and can reconcile if webhooks are delayed.
 
-1. Confirm endpoint URL: `https://yoursite.com/wp-json/clasbpro/v1/stripe-webhook`
-2. All three event types subscribed — see [Stripe setup](/docs/stripe-setup)
-3. Signing secret matches active endpoint (test vs live)
-4. Check Stripe Dashboard → Webhooks → recent deliveries for HTTP errors
-5. Security plugins / firewalls — allow `POST` to `/wp-json/`
+## Emails not arriving
 
-Manually complete a test payment and watch webhook logs in real time.
+1. Configure **SMTP** (WP Mail SMTP or host relay) — WordPress `mail()` is unreliable.
+2. Check spam folders and SPF/DKIM for your sending domain.
+3. Use **Settings → Emails → Local test mode** to route all plugin mail to one inbox while debugging.
+4. On the booking edit screen, check **Emails** panel for **Error** status and detail text.
+5. Enable `WP_DEBUG_LOG` and watch for `wp_mail_failed` entries.
 
-## Payment OK in Stripe but no confirmation email
+## Scheduled emails late or missing
 
-1. Webhook must fire first — fix webhook if booking still pending
-2. Test `wp_mail()` — install SMTP plugin; check spam
-3. Review **Settings → Emails** templates for PHP errors in HTML
-4. Host blocking outbound mail — contact host or use SendGrid/SES SMTP
+WordPress cron is visit-triggered unless server cron is configured:
 
-## Scheduled emails not sending (Pro)
+```bash
+*/5 * * * * curl -s https://yoursite.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1
+```
 
-1. **Cron** — ensure system cron triggers WordPress every minute
-2. Rules configured on **Emails** tab or per-class
-3. Run **backfill** tool after adding rules to old bookings
-4. Check booking is **paid** and class date is in the future (reminders)
+Use **Scheduled email tools** (backfill / test dispatch) under Settings → Emails. See [Scheduled emails](/docs/settings-scheduled-emails).
 
-See [Scheduled emails](/docs/scheduled-emails).
+## “No class selected” on front end
 
-## Wrong dates or timezone
+- Add `class_id="123"` to `[clasbpro_booking]`.
+- Elementor: pick class in widget or set `clasbpro_class_stripe_id` on the post.
+- Confirm class is **published** and **active**.
 
-WordPress timezone: **Settings → General → Timezone**. Class dates store in site timezone context. Compare booking admin date with class schedule.
+## Capacity / date errors
 
-## Capacity shows full but spots available
+| Reason code | Meaning |
+|-------------|---------|
+| `capacity_full` | Session sold out |
+| `date_invalid` | Date cancelled or past |
+| `class_inactive` | Class deactivated |
+| `validation` | Missing name, email, waiver, or ACF field |
 
-- Pending holds count for 30 minutes
-- Expired bookings should release — verify cron
-- Cancelled dates on weekly classes remove occurrences
+Customise messages via `clasbpro_status_reason_messages` — [Hooks](/docs/customising-hooks).
 
-## Appointment calendar empty
+## Appointments — no slots
 
-- Booking type must be **Appointments**
-- At least one valid **slot rule** required
-- Calendar months ahead must include dates with rules
-- See [Appointments](/docs/appointments)
+- Add at least one **slot rule** with valid date range.
+- Check **minimum lead time** is not excluding all slots.
+- Verify **cancelled dates** and existing paid bookings on slots.
 
-## Elementor / caching
+## Theme not applying
 
-- Exclude booking page from full-page cache
-- Exclude `/wp-json/clasbpro/*` from cache
-- Clear cache after theme or plugin updates
+- **Themes → Enable** the gallery theme and set source to **Gallery**.
+- Clear caching plugins / CDN.
+- After **Install to theme**, edit files in your theme folder — [Customising themes](/docs/customising-themes).
 
-## Free + Pro both active
+## Free + Pro plugin conflict
 
-Deactivate one plugin. Both register similar shortcodes and split data.
+Deactivate either the free WordPress.org plugin or Pro — do not run both. Shortcodes and data stores conflict.
 
-## REST / permalink 404
+## See also
 
-**Settings → Permalinks → Save** to flush rewrite rules.
-
-## Debug checklist
-
-| Step | Action |
-|------|--------|
-| 1 | Stripe test mode end-to-end |
-| 2 | Webhook delivery log green |
-| 3 | Booking post status = paid |
-| 4 | `wp_mail` test plugin |
-| 5 | Browser console on booking form |
-
-## Get help
-
-[GitHub Issues](https://github.com/IORoot/class-bookings-with-stripe-pro-website/issues) — include WP version, PHP version, plugin version, Stripe mode, and steps to reproduce.
+- [Stripe settings](/docs/settings-stripe)
+- [Getting started](/docs/getting-started)
+- [REST API](/docs/customising-api)

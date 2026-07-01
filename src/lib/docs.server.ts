@@ -56,6 +56,20 @@ export function getDoc(slug: string): Doc | undefined {
 	return getAllDocs().find((d) => d.slug === slug);
 }
 
+/** Sidebar category order (matches documentation overview). */
+const CATEGORY_ORDER = [
+	'Getting started',
+	'Settings',
+	'Classes',
+	'Bookings',
+	'Reports',
+	'Themes',
+	'Shortcodes',
+	'Responsiveness',
+	'Customising',
+	'Reference'
+] as const;
+
 export function getDocNav(): DocNavCategory[] {
 	const docs = getAllDocs();
 	const categories = new Map<string, DocMeta[]>();
@@ -66,8 +80,20 @@ export function getDocNav(): DocNavCategory[] {
 		categories.set(doc.category, list);
 	}
 
-	return [...categories.entries()].map(([name, items]) => ({
+	const ordered = CATEGORY_ORDER.filter((name) => categories.has(name)).map((name) => ({
 		name,
-		items: items.sort((a, b) => a.order - b.order)
+		items: categories.get(name)!.sort((a, b) => a.order - b.order)
 	}));
+
+	const known = new Set<string>(CATEGORY_ORDER);
+	for (const [name, items] of categories.entries()) {
+		if (!known.has(name)) {
+			ordered.push({
+				name,
+				items: items.sort((a, b) => a.order - b.order)
+			});
+		}
+	}
+
+	return ordered;
 }

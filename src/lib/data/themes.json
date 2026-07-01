@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-06-16T14:17:55.777Z",
+  "syncedAt": "2026-07-01T11:17:05.420Z",
   "source": "local",
   "repoUrl": "https://github.com/IORoot/class-bookings-with-stripe-pro-themes",
   "count": 22,
@@ -12,6 +12,7 @@
       "provides": [
         "booking-form",
         "booking-status",
+        "global-schedule",
         "style"
       ],
       "tags": [
@@ -42,6 +43,7 @@
       "provides": [
         "booking-form",
         "booking-status",
+        "global-schedule",
         "style"
       ],
       "tags": [
@@ -58,6 +60,7 @@
       "provides": [
         "booking-form",
         "booking-status",
+        "global-schedule",
         "style"
       ],
       "tags": [
@@ -74,6 +77,7 @@
       "provides": [
         "booking-form",
         "booking-status",
+        "global-schedule",
         "style"
       ],
       "tags": [
@@ -90,6 +94,7 @@
       "provides": [
         "booking-form",
         "booking-status",
+        "global-schedule",
         "style"
       ],
       "tags": [
@@ -134,6 +139,7 @@
       "provides": [
         "booking-form",
         "booking-status",
+        "global-schedule",
         "style"
       ],
       "tags": [
@@ -307,6 +313,7 @@
       "provides": [
         "booking-form",
         "booking-status",
+        "global-schedule",
         "style"
       ],
       "tags": [
@@ -323,6 +330,7 @@
       "provides": [
         "booking-form",
         "booking-status",
+        "global-schedule",
         "style"
       ],
       "tags": [
