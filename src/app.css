@@ -256,7 +256,55 @@
 		@apply text-fg/85;
 	}
 
-	/* Wide tables (REST routes, hooks, etc.) */
+	/* Hook / filter reference tables */
+	.prose-docs table.doc-table--hooks {
+		table-layout: fixed;
+		min-width: 36rem;
+	}
+
+	.prose-docs table.doc-table--hooks thead th:nth-child(1) {
+		width: 42%;
+	}
+
+	.prose-docs table.doc-table--hooks thead th:nth-child(2) {
+		width: 24%;
+	}
+
+	.prose-docs table.doc-table--hooks thead th:nth-child(3) {
+		width: 34%;
+	}
+
+	.prose-docs table.doc-table--hooks tbody td:first-child {
+		@apply font-medium text-fg;
+		overflow-wrap: anywhere;
+		word-break: break-word;
+	}
+
+	.prose-docs table.doc-table--hooks tbody td:first-child code {
+		@apply whitespace-normal;
+		overflow-wrap: anywhere;
+		word-break: break-all;
+	}
+
+	.prose-docs table.doc-table--hooks tbody td:not(:first-child) {
+		@apply text-fg/85;
+	}
+
+	.prose-docs table.doc-table--hooks.doc-table--hooks-two-col {
+		min-width: 28rem;
+	}
+
+	.prose-docs table.doc-table--hooks.doc-table--hooks-two-col thead th:nth-child(1),
+	.prose-docs table.doc-table--hooks.doc-table--hooks-two-col tbody td:first-child {
+		width: 46%;
+	}
+
+	.prose-docs table.doc-table--hooks.doc-table--hooks-two-col thead th:nth-child(2),
+	.prose-docs table.doc-table--hooks.doc-table--hooks-two-col tbody td:last-child {
+		width: 54%;
+	}
+
+	/* Wide tables (REST routes, etc.) */
 	.prose-docs table.doc-table--wide {
 		min-width: 40rem;
 	}

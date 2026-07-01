@@ -9,8 +9,6 @@ category: Getting started
 
 Class Bookings with Stripe Pro is a **standalone** WordPress plugin. You do not need the free WordPress.org version. Pro includes Stripe Checkout booking, appointments, scheduled emails, booking form themes, reports, and more.
 
-![Plugin activated in WordPress admin](/docs/images/getting-started-activated.png)
-
 ## Requirements
 
 | Requirement | Minimum |
@@ -44,7 +42,7 @@ If you previously had the free plugin active, **deactivate one version** — run
 | 6. Embed the form | Page shortcode or Elementor | [Shortcodes](/docs/shortcodes) |
 | 7. Result pages | Created on activation; assign under Settings | [Result pages](/docs/settings-result-pages) |
 
-![First-time setup checklist in Settings](/docs/images/getting-started-settings.png)
+![Setup guide in Settings → Help](/docs/images/settings-help-setup.png)
 
 ## Create your first class (weekly example)
 
@@ -66,6 +64,9 @@ Replace `123` with your class post ID.
 1. Set **Settings → Stripe → Mode** to **Test**.
 2. Use [Stripe test card numbers](https://docs.stripe.com/testing#cards) (e.g. `4242 4242 4242 4242`).
 3. Complete checkout on your booking page.
+
+![Stripe Checkout payment screen](/docs/images/stripe-payment.png)
+
 4. Confirm the booking appears under **Bookings** with status **Paid**.
 5. Check customer and admin emails (enable **Local test mode** under Settings → Emails if you want all mail redirected to one inbox).
 

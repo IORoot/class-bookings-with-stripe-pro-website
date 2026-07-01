@@ -17,7 +17,7 @@ Three shortcodes embed booking UI on any page, post, or widget area:
 
 Legacy aliases `stripe_booking_pro` and `stripe_booking_status_pro` still work.
 
-![Booking shortcode on a page](/docs/images/shortcodes-page.png)
+![Shortcodes reference in Settings → Help](/docs/images/settings-help-shortcodes.png)
 
 ## Adding shortcodes
 
@@ -51,9 +51,21 @@ Without `class_id`, the shortcode shows “No class selected.”
 
 ### Previews by class type
 
-- **Weekly** — date dropdown or calendar + seats + pay button
-- **One-off** — event date + checkout
-- **Appointments** — month calendar + time slots
+**Weekly class** — default booking form:
+
+![Weekly class booking form](/docs/images/shortcode-class.png)
+
+**Weekly class** — date dropdown:
+
+![Weekly class with date dropdown](/docs/images/shortcode-class-dropdown.png)
+
+**One-off event:**
+
+![One-off event booking form](/docs/images/shortcode-event.png)
+
+**Appointments** — calendar and time slots:
+
+![Appointment booking form](/docs/images/shortcode-appointments.png)
 
 ## `[clasbpro_schedule]`
 
@@ -67,6 +79,8 @@ Renders the multi-class schedule calendar. Classes default from **Settings → R
 | Attribute | Description |
 |-----------|-------------|
 | `class_ids` | Optional comma-separated Class post IDs |
+
+![Schedule calendar shortcode](/docs/images/shortcode-schedule.png)
 
 Clicking a session opens an inline booking panel (loads form via REST).
 
@@ -84,7 +98,17 @@ Place on result pages assigned under Settings. Type is usually fixed per page:
 |-----------|-------------|
 | `type` | `success`, `cancelled`, or `error` |
 
-**Success** reads `session_id` and token from the URL after Stripe redirect. **Cancelled** shows when customer backs out of Checkout. **Error** shows validation or payment failures with a reason code.
+**Success** reads `session_id` and token from the URL after Stripe redirect:
+
+![Booking status — payment succeeded](/docs/images/shortcode-status-success.png)
+
+**Cancelled** shows when the customer backs out of Checkout:
+
+![Booking status — checkout cancelled](/docs/images/shortcode-status-cancelled.png)
+
+**Error** shows validation or payment failures with a reason code:
+
+![Booking status — payment failed](/docs/images/shortcode-status-error.png)
 
 ## See also
 

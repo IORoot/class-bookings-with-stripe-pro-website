@@ -12,7 +12,9 @@ pro: true
 
 > **Pro only** — not available in the free WordPress.org plugin.
 
-![Appointment booking form with calendar](/docs/images/classes-appointments-form.png)
+![Appointment class fields and slot rules](/docs/images/classes-appointments.png)
+
+![Appointment booking form on the front end](/docs/images/shortcode-appointments.png)
 
 ## Class-level fields
 

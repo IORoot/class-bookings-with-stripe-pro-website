@@ -9,7 +9,7 @@ category: Bookings
 
 **Stripe Class Pro → Bookings** lists every booking with sortable columns for quick studio operations.
 
-![Bookings list table](/docs/images/bookings-list-table.png)
+![Bookings list table](/docs/images/booking-listing.png)
 
 ## Columns
 

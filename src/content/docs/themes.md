@@ -14,7 +14,7 @@ pro: true
 
 Browse the public gallery: **[Booking themes](/themes)** (screenshots and download links).
 
-![Themes admin gallery](/docs/images/themes-gallery.png)
+![Themes gallery in WordPress admin](/docs/images/themes.png)
 
 ## Theme source
 
@@ -37,6 +37,8 @@ Override order and file layout: [Customising themes](/docs/customising-themes).
 | **Live preview** | Modal preview of booking form appearance |
 | **Download ZIP** | Export all theme files |
 | **View files** | Read-only code viewer in admin |
+
+![Theme file viewer](/docs/images/theme-view-files.png)
 
 ## What themes include
 

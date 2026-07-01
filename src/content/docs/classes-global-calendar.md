@@ -11,8 +11,6 @@ Each class can customise how it appears on the multi-class **`[clasbpro_schedule
 
 Settings are in the **Global calendar** box on the class edit screen.
 
-![Global calendar sidebar on class edit](/docs/images/classes-global-calendar.png)
-
 ## Field reference
 
 | Field | What it does |

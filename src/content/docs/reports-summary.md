@@ -9,7 +9,7 @@ category: Reports
 
 **Stripe Class Pro → Reports → Summary** is the studio dashboard: how many people booked per class in a year, who is coming to upcoming sessions, and per-class guest lists for the next three sessions.
 
-![Reports summary dashboard](/docs/images/reports-summary.png)
+![Reports summary dashboard](/docs/images/report-summary.png)
 
 ## Bookings by class graph
 

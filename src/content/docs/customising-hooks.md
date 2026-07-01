@@ -9,6 +9,8 @@ category: Customising
 
 The plugin exposes WordPress hooks for customising data and templates without forking core. Namespace prefix: `clasbpro_` (legacy free-plugin templates may still fire `clasbowi_` in default templates).
 
+![Developer reference in Settings → Help](/docs/images/settings-help-developer.png)
+
 ## Actions
 
 | Hook | When it fires | Typical use |

@@ -9,7 +9,7 @@ category: Bookings
 
 Each successful (or attempted) checkout creates a **Booking** post under **Stripe Class Pro → Bookings**. Bookings are created automatically — you cannot add them manually.
 
-![Single booking edit screen](/docs/images/bookings-edit.png)
+![Single booking edit screen](/docs/images/booking.png)
 
 ## Reference
 

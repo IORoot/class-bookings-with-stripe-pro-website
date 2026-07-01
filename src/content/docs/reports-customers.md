@@ -9,7 +9,7 @@ category: Reports
 
 **Reports → Customers** is your CRM-style list of everyone who has paid for a class: search, sort, export, and drill into their bookings.
 
-![Reports customers table](/docs/images/reports-customers.png)
+![Reports customers table](/docs/images/report-customers.png)
 
 ## Summary line
 

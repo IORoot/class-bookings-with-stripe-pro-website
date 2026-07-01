@@ -14,8 +14,6 @@ If Elementor is active, two widgets appear under **Class Bookings with Stripe (P
 
 They wrap the same shortcodes with visual controls and style tabs.
 
-![Elementor booking widget](/docs/images/shortcodes-elementor-widget.png)
-
 ## Class Booking widget
 
 ### Class source — Manual
@@ -25,6 +23,8 @@ Pick a class from the **Stripe Class** dropdown. Equivalent to:
 ```
 [clasbpro_booking class_id="123" heading="1"]
 ```
+
+![Class Booking widget — Content tab](/docs/images/elementor-class-widget-content.png)
 
 ### Class source — Current post
 
@@ -47,6 +47,8 @@ Maps to shortcode `heading="1"` or `heading="0"`.
 | **Book & Pay button** | Primary Stripe checkout button |
 | **External link button** | Classes using external booking URL |
 
+![Class Booking widget — Style tab](/docs/images/elementor-class-widget-style.png)
+
 ## Class Schedule Calendar widget
 
 | Control | Description |
@@ -55,11 +57,15 @@ Maps to shortcode `heading="1"` or `heading="0"`.
 | **Class selection** | Multi-select when not using global settings |
 | **Style — width** | Container width constraints |
 
+![Schedule Calendar widget — Content tab](/docs/images/elementor-global-calendar-content.png)
+
 Equivalent shortcode:
 
 ```
 [clasbpro_schedule class_ids="12,34"]
 ```
+
+![Schedule calendar on the front end](/docs/images/shortcode-schedule.png)
 
 ## Tips
 

@@ -9,6 +9,8 @@ category: Classes
 
 A **weekly class** repeats on the same weekday each week (e.g. every Tuesday 18:00). Customers pick an upcoming date, then complete Stripe Checkout.
 
+![Weekly class fields in the editor](/docs/images/classes-weekly.png)
+
 ## Field reference
 
 | Field | What it does |
@@ -32,6 +34,8 @@ A **weekly class** repeats on the same weekday each week (e.g. every Tuesday 18:
 |------|---------------------|
 | **Dropdown** | List of upcoming bookable dates |
 | **Calendar** | Month grid; highlighted days are bookable |
+
+![Weekly class with date dropdown](/docs/images/shortcode-class-dropdown.png)
 
 Calendar mode loads availability via REST (`/class-calendar`) and respects capacity and cancelled dates per day.
 

@@ -9,7 +9,7 @@ category: Classes
 
 **Stripe Class Pro → Classes** shows all class posts in a sortable table. Use it to scan schedules, copy IDs, and jump into editing.
 
-![Classes list table](/docs/images/classes-list-table.png)
+![Classes list table](/docs/images/classes-listing.png)
 
 ## Columns
 

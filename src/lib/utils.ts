@@ -34,6 +34,10 @@ function tableHeaderTexts(inner: string): string[] {
 function tableVariantClass(headers: string[]): string {
 	if (headers.length === 0) return '';
 
+	if (headers[0] === 'hook' || headers[0] === 'filter') {
+		return headers.length === 2 ? ' doc-table--hooks doc-table--hooks-two-col' : ' doc-table--hooks';
+	}
+
 	if (headers[0] === 'step') return ' doc-table--steps';
 	if (headers.length >= 4) return ' doc-table--wide';
 	if (headers.length === 3) return ' doc-table--compare';

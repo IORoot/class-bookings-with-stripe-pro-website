@@ -9,7 +9,7 @@ category: Reports
 
 **Reports → Classes** focuses on one class at a time. Choose a class from the selector (top right) to load charts and a summary line.
 
-![Per-class reports charts](/docs/images/reports-classes.png)
+![Per-class reports](/docs/images/report-classes.png)
 
 ## Summary line
 

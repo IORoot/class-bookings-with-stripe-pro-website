@@ -23,6 +23,8 @@ Per-class overrides: [Class emails](/docs/classes-emails).
 
 ## Field reference — Reminders
 
+![Scheduled reminder email settings](/docs/images/settings-email-reminders.png)
+
 | Field | What it does |
 |-------|----------------|
 | **Enabled** | Turn reminder rules on or off globally |
@@ -33,6 +35,8 @@ Per-class overrides: [Class emails](/docs/classes-emails).
 | **Send test email** | Sample send via test recipient |
 
 ## Field reference — Post-class
+
+![Scheduled post-class email settings](/docs/images/settings-email-post-class.png)
 
 | Field | What it does |
 |-------|----------------|

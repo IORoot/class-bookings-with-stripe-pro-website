@@ -9,6 +9,10 @@ category: Classes
 
 **One-off events** cover workshops, retreats, or single sessions that are not tied to a weekly weekday. Customers book a date within the event’s start/end range.
 
+![One-off event fields in the editor](/docs/images/classes-event.png)
+
+![One-off event booking form on the front end](/docs/images/shortcode-event.png)
+
 ## Field reference
 
 | Field | What it does |

@@ -16,9 +16,9 @@ Use **Advanced Custom Fields** to add questions to the booking form (phone numbe
 3. Set location rule: **Class Bookings with Stripe → Booking form**
 4. Publish the field group
 
-Fields appear on every booking form site-wide (or narrow with additional ACF location rules if you use ACF Pro).
+![ACF location rule — Booking form](/docs/images/acf-location-rules.png)
 
-![ACF field group location rule](/docs/images/customising-acf-location.png)
+Fields appear on every booking form site-wide (or narrow with additional ACF location rules if you use ACF Pro).
 
 ## Submission & validation
 

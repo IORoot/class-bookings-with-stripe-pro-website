@@ -9,7 +9,7 @@ category: Settings
 
 After Stripe Checkout, customers return to your WordPress site on **success**, **cancel**, or **error** pages. This tab assigns those pages and configures which classes appear on the global schedule calendar.
 
-![Result pages settings](/docs/images/settings-result-pages.png)
+![Result pages and schedule settings](/docs/images/settings-result-pages.png)
 
 ## Result pages
 
@@ -23,7 +23,11 @@ On plugin activation, three pages are created with the correct shortcodes. Assig
 
 The success page reads `session_id` and a status token from the URL query string after redirect.
 
+![Booking confirmed result page](/docs/images/shortcode-status-success.png)
+
 If webhooks are slow, customers may briefly see a processing state — the page polls the REST API until payment is confirmed. Ensure webhooks are configured: [Stripe settings](/docs/settings-stripe).
+
+Full previews of all result page types: [Shortcodes — booking status](/docs/shortcodes#clasbpro_booking_status).
 
 ## Schedule calendar
 
@@ -33,6 +37,8 @@ If webhooks are slow, customers may briefly see a processing state — the page 
 | **Schedule weeks ahead** | How many weeks the calendar navigation allows (global default) |
 
 Inactive classes are hidden on the front-end calendar. Override class list per shortcode: [Shortcodes](/docs/shortcodes).
+
+![Schedule calendar shortcode](/docs/images/shortcode-schedule.png)
 
 Per-class card styling: [Global calendar settings](/docs/classes-global-calendar).
 

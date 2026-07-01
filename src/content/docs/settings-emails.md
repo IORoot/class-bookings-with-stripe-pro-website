@@ -9,7 +9,7 @@ category: Settings
 
 When a booking is marked **paid**, the plugin sends instant **customer** and **admin** emails via WordPress `wp_mail()`. Configure subjects and bodies here. For reminder and post-class messages, see [Scheduled emails](/docs/settings-scheduled-emails).
 
-![Emails settings with sub-tabs](/docs/images/settings-emails-tab.png)
+![Emails settings — admin sub-tab](/docs/images/settings-emails-admin.png)
 
 ## WordPress email delivery
 
@@ -47,7 +47,9 @@ Scheduled reminder and post-class tabs are documented in [Scheduled emails](/doc
 | **Subject** | Confirmation subject; merge tags allowed |
 | **Body editor mode** | Visual or HTML |
 | **Body** | Confirmation body fragment |
-| **Send test email** | Sends sample to test recipient |
+| **Send test email** | Sends sample with merge tags filled in |
+
+![Emails settings — customer sub-tab](/docs/images/settings-email-customer.png)
 
 ## Body editors
 
@@ -81,6 +83,8 @@ Subjects and bodies support tags like `{customer_name}` and `{class_date}`. Full
 | **Local test mode** | Redirects all plugin email to the test recipient; banner shows intended recipient |
 | **Test recipient** | Inbox used when local test mode is on (falls back to admin notification email) |
 | **Scheduled email tools** | Backfill queue and run test dispatch — see [Scheduled emails](/docs/settings-scheduled-emails) |
+
+![Emails settings — extras and test tools](/docs/images/settings-email-extra.png)
 
 ## See also
 

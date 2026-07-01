@@ -9,7 +9,9 @@ category: Settings
 
 The **Stripe** tab under **Stripe Class Pro → Settings** connects your WordPress site to Stripe Checkout. Customers pay on Stripe’s hosted page; the plugin creates bookings when Stripe confirms payment via webhook.
 
-![Stripe settings tab](/docs/images/settings-stripe-tab.png)
+![Stripe settings tab](/docs/images/settings-stripe.png)
+
+![Stripe API keys and mode](/docs/images/setup-stripe-keys.png)
 
 ## How to configure
 
@@ -35,7 +37,7 @@ The **Stripe** tab under **Stripe Class Pro → Settings** connects your WordPre
 | **Webhook signing secret** | `whsec_…` | From the Stripe endpoint for this site’s URL |
 | **Webhook URL** (read-only) | Your REST endpoint | `…/wp-json/clasbpro/v1/stripe-webhook` (exact URL shown in admin) |
 
-![Webhook URL and signing secret fields](/docs/images/settings-stripe-webhook.png)
+![Webhook URL and signing secret in Settings](/docs/images/setup-stripe-webhooks.png)
 
 ## Webhook URL
 

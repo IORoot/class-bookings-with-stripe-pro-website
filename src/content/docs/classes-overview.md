@@ -9,8 +9,6 @@ category: Classes
 
 Each **Class** is a WordPress post (**Stripe Class Pro → Classes**) that defines what customers can book: schedule, price, capacity, location, and emails. Bookings reference a class by post ID.
 
-![Add new class screen](/docs/images/classes-edit-overview.png)
-
 ## Schedule types
 
 | Type | Best for | Detail guide |
@@ -21,6 +19,14 @@ Each **Class** is a WordPress post (**Stripe Class Pro → Classes**) that defin
 | **External link** | Class marketed on site but booked elsewhere | Enable external URL on any type |
 
 Choose **Schedule type** at the top of the class editor. Fields shown depend on the type selected.
+
+![Weekly class editor](/docs/images/classes-weekly.png)
+
+### External link
+
+Classes can send customers to an external booking URL instead of Stripe Checkout:
+
+![External link class](/docs/images/classes-external-link.png)
 
 ## Activate / deactivate
 
