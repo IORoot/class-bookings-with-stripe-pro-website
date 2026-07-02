@@ -1,3 +1,10 @@
+export type FeatureCard = {
+	title: string;
+	description: string;
+	accent: 'teal' | 'slate';
+	pro?: boolean;
+};
+
 export const features = [
 	{
 		title: 'Class-based checkouts',
@@ -36,7 +43,7 @@ export const features = [
 		accent: 'teal',
 		pro: true
 	}
-] as const;
+] satisfies FeatureCard[];
 
 export const benefits = [
 	'No WooCommerce required',
@@ -52,11 +59,6 @@ export const mainFeatures = [
 			'Set up repeatable classes that pass the right date and booking data straight into Stripe Checkout. No generic Stripe products or hand-built sessions missing class details—the plugin builds the correct checkout with every custom field you need.',
 		image: '/docs/images/feature-stripe-checkout.png',
 		imageAlt: 'Stripe Checkout showing class name, date, time, and price'
-	},
-	{
-		title: 'Stripe Checkout',
-		description:
-			'Skip Stripe.js, card elements, and PCI headaches. Stripe hosts payment—you never handle card data on your site.'
 	},
 	{
 		title: 'Repeating classes, one-off events & appointments',
@@ -90,7 +92,9 @@ export const mainFeatures = [
 	{
 		title: 'Singular forms & global calendar',
 		description:
-			'Place individual class forms on any page with shortcodes or Elementor widgets. Show multiple class types together on one global calendar.'
+			'Place individual class forms on any page with shortcodes or Elementor widgets. Show multiple class types together on one global calendar.',
+		image: '/docs/images/feature-global-calendar.png',
+		imageAlt: 'Global schedule calendar showing weekly classes, events, and appointments'
 	},
 	{
 		title: 'Customisable',

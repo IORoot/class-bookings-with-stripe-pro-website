@@ -9,10 +9,35 @@ export function renderMarkdown(source: string): string {
 	return marked.parse(source) as string;
 }
 
+function docFigureFromImg(attrs: string): string {
+	const src = attrs.match(/\bsrc="([^"]+)"/)?.[1];
+	if (!src) return `<img ${attrs}>`;
+
+	const alt = attrs.match(/\balt="([^"]*)"/)?.[1] ?? '';
+	const imgAttrs = attrs
+		.replace(/\s*\b(loading|decoding)="[^"]*"/g, '')
+		.trim();
+
+	return `<figure class="doc-figure"><a href="${src}" target="_blank" rel="noopener noreferrer" class="doc-figure-link" aria-label="Open full-size image: ${alt}"><img ${imgAttrs} loading="lazy" decoding="async" /></a>${alt ? `<figcaption>${alt}</figcaption>` : ''}</figure>`;
+}
+
 export function enhanceDocImages(html: string): string {
-	return html.replace(
-		/<p><img src="([^"]+)" alt="([^"]*)"([^>]*)><\/p>/g,
-		'<figure class="doc-figure"><a href="$1" target="_blank" rel="noopener noreferrer" class="doc-figure-link" aria-label="Open full-size image: $2"><img src="$1" alt="$2"$3 loading="lazy" decoding="async" /></a><figcaption>$2</figcaption></figure>'
+	const linkedFigure = /<a[^>]*class="doc-figure-link"[^>]*>[\s\S]*?<\/a>/gi;
+	const placeholders: string[] = [];
+
+	const protectedHtml = html.replace(linkedFigure, (match) => {
+		placeholders.push(match);
+		return `__DOC_FIGURE_PLACEHOLDER_${placeholders.length - 1}__`;
+	});
+
+	const enhanced = protectedHtml
+		.replace(/<p>\s*<img\s+([^>]*?)\s*\/?>\s*<\/p>/gi, (_, attrs) => docFigureFromImg(attrs))
+		.replace(/<img\s+([^>]*?)\s*\/?>/gi, (_, attrs) => docFigureFromImg(attrs));
+
+	return placeholders.reduce(
+		(result, placeholder, index) =>
+			result.replace(`__DOC_FIGURE_PLACEHOLDER_${index}__`, placeholder),
+		enhanced
 	);
 }
 

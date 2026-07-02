@@ -7,36 +7,45 @@
 	}
 
 	let { theme }: Props = $props();
+
+	const imageClass =
+		'h-full w-full object-cover object-top transition duration-500 group-hover/image:scale-[1.02]';
 </script>
 
-<a
-	href={theme.repoUrl}
-	target="_blank"
-	rel="noopener noreferrer"
-	class="group block-card block-card-hover flex h-full flex-col overflow-hidden"
->
-	<div class="relative aspect-[4/3] overflow-hidden bg-surface-overlay">
+<article class="group block-card block-card-hover flex h-full flex-col overflow-hidden">
+	<a
+		href={theme.screenshotUrl}
+		target="_blank"
+		rel="noopener noreferrer"
+		class="clickable-image group/image relative block aspect-[4/3] overflow-hidden bg-surface-overlay"
+		aria-label="Open full-size {theme.name} preview"
+	>
 		<img
 			src={theme.screenshotUrl}
 			alt="{theme.name} booking form preview"
-			class="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
+			class={imageClass}
 			loading="lazy"
 			decoding="async"
 		/>
 		<div
-			class="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface-raised/90 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"
+			class="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface-raised/90 via-transparent to-transparent opacity-0 transition group-hover/image:opacity-100"
 		></div>
 		<span
-			class="absolute right-3 top-3 rounded-lg border border-border bg-surface/90 p-1.5 text-muted opacity-0 backdrop-blur transition group-hover:opacity-100"
+			class="absolute right-3 top-3 rounded-lg border border-border bg-surface/90 p-1.5 text-muted opacity-0 backdrop-blur transition group-hover/image:opacity-100"
 			aria-hidden="true"
 		>
 			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-				<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 20 4" />
+				<path d="M15 3h6v6M10 14 20 4M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
 			</svg>
 		</span>
-	</div>
+	</a>
 
-	<div class="flex flex-1 flex-col gap-3 p-4">
+	<a
+		href={theme.repoUrl}
+		target="_blank"
+		rel="noopener noreferrer"
+		class="flex flex-1 flex-col gap-3 p-4 transition hover:text-fg"
+	>
 		<div class="flex flex-wrap items-start justify-between gap-2">
 			<h2 class="text-base font-semibold text-fg group-hover:text-teal-bright">{theme.name}</h2>
 			<span class="font-mono text-xs text-muted">{theme.slug}</span>
@@ -58,5 +67,5 @@
 				</span>
 			{/each}
 		</div>
-	</div>
-</a>
+	</a>
+</article>

@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
 	import BuyCTA from '$lib/components/BuyCTA.svelte';
+	import HeroVideo from '$lib/components/HeroVideo.svelte';
+	import ClickableImage from '$lib/components/ClickableImage.svelte';
 	import ProBadge from '$lib/components/ProBadge.svelte';
 	import { site } from '$lib/config';
 	import { features, benefits, mainFeatures, examples } from '$lib/features';
@@ -9,7 +11,7 @@
 
 <Seo title={site.name} description={site.description} path="/" />
 
-<section class="relative px-5 pb-20 pt-16 md:pt-24" use:revealHero>
+<section class="relative border-b border-border" use:revealHero>
 	<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
 		<div class="absolute -left-32 top-20 h-72 w-72 rounded-full bg-teal/20 blur-[100px]"></div>
 		<div class="absolute -right-20 top-40 h-64 w-64 rounded-full bg-teal-deep/25 blur-[90px]"></div>
@@ -19,58 +21,48 @@
 		></div>
 	</div>
 
-	<div class="relative mx-auto max-w-6xl">
-		<div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-			<div>
-				<p
-					data-hero-item
-					class="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-surface-overlay/60 px-3 py-1 text-xs font-medium text-muted"
-				>
-					<span class="h-1.5 w-1.5 rounded-full bg-teal-bright"></span>
-					{site.author} · WordPress + Stripe
-				</p>
-				<h1 data-hero-item class="text-display text-5xl leading-[1.05] md:text-6xl lg:text-7xl">
-					{site.tagline}
-				</h1>
-				<p data-hero-item class="mt-6 max-w-xl text-lg text-muted">
-					{site.description}
-				</p>
-				<div data-hero-item class="mt-8 flex flex-wrap gap-3">
-					<a href={site.stripePaymentLink} class="btn-primary">Buy Pro — {site.price}</a>
-					<a href="/details" class="btn-secondary">Compare with Free</a>
-				</div>
-				<ul data-hero-item class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-					{#each benefits as b}
-						<li class="flex items-center gap-2">
-							<span class="text-teal-bright">✓</span>
-							{b}
-						</li>
-					{/each}
-				</ul>
+	<div class="relative mx-auto max-w-[88rem]">
+		<!-- Desktop: video spans header to section border -->
+		<div
+			class="pointer-events-none absolute inset-y-0 left-[48%] right-0 z-0 hidden lg:left-[46%] lg:block xl:left-[38%]"
+		>
+			<HeroVideo fill />
+		</div>
+ 
+		<div class="relative z-10 px-5 py-12 md:py-14 lg:max-w-[min(100%,40rem)] lg:py-16 xl:max-w-[42%]">
+			<p
+				data-hero-item
+				class="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-surface-overlay/60 px-3 py-1 text-xs font-medium text-muted"
+			>
+				<span class="h-1.5 w-1.5 rounded-full bg-teal-bright"></span>
+				{site.author} · WordPress + Stripe
+			</p>
+			<h1 data-hero-item class="text-display text-5xl leading-[1.05] md:text-6xl lg:text-7xl">
+				{site.tagline}
+			</h1>
+			<p data-hero-item class="mt-6 max-w-xl text-lg text-muted">
+				{site.description}
+			</p>
+			<div data-hero-item class="mt-8 flex flex-wrap gap-3">
+				<a href={site.stripePaymentLink} class="btn-primary">Buy Pro — {site.price}</a>
+				<a href="/details" class="btn-secondary">Compare with Free</a>
 			</div>
+			<ul data-hero-item class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+				{#each benefits as b}
+					<li class="flex items-center gap-2">
+						<span class="text-teal-bright">✓</span>
+						{b}
+					</li>
+				{/each}
+			</ul>
+		</div>
 
-			<div data-hero-item class="relative flex justify-center lg:justify-end">
-				<div class="block-card relative w-full max-w-md p-8">
-					<img src="/logo_plugin.svg" alt="" class="mx-auto w-40" width="160" height="134" />
-					<p class="mt-6 text-center text-sm text-muted">
-						Stripe Checkout · capacity-aware booking · emails & reports
-					</p>
-					<div class="mt-6 grid grid-cols-2 gap-2 text-center text-xs">
-						<div class="rounded-lg bg-surface-overlay p-3 text-muted">Weekly classes</div>
-						<div class="rounded-lg bg-surface-overlay p-3 text-muted">One-off events</div>
-						<div class="rounded-lg bg-teal/10 p-3 text-teal-bright">
-							<span class="inline-flex items-center justify-center gap-1.5">
-								Appointments <ProBadge />
-							</span>
-						</div>
-						<div class="rounded-lg bg-teal/10 p-3 text-teal-bright">
-							<span class="inline-flex items-center justify-center gap-1.5">
-								Themes <ProBadge />
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
+		<!-- Mobile: video sits above the section border -->
+		<div
+			data-hero-item
+			class="relative z-0 h-[min(52vh,24rem)] sm:h-[min(56vh,28rem)] lg:hidden"
+		>
+			<HeroVideo fill />
 		</div>
 	</div>
 </section>
@@ -147,22 +139,18 @@
 							{#if 'images' in f && f.images}
 								<div class="flex flex-col gap-5">
 									{#each f.images as img}
-										<img
+										<ClickableImage
 											src={img.src}
 											alt={img.alt}
 											class="w-full rounded-xl border border-border bg-surface-raised shadow-lg shadow-black/20"
-											loading="lazy"
-											decoding="async"
 										/>
 									{/each}
 								</div>
 							{:else if 'image' in f && f.image}
-								<img
+								<ClickableImage
 									src={f.image}
 									alt={f.imageAlt ?? ''}
 									class="w-full rounded-xl border border-border bg-surface-raised shadow-lg shadow-black/20"
-									loading="lazy"
-									decoding="async"
 								/>
 							{/if}
 						</div>
@@ -213,12 +201,10 @@
 						class="grid items-center gap-10 md:gap-14 lg:grid-cols-2 lg:gap-20 xl:gap-24"
 					>
 						<div class="order-1 {flip ? 'lg:col-start-2 lg:row-start-1' : ''}">
-							<img
+							<ClickableImage
 								src={e.image}
 								alt={e.imageAlt ?? ''}
 								class="w-full rounded-xl border border-border bg-surface-raised shadow-lg shadow-black/20"
-								loading="lazy"
-								decoding="async"
 							/>
 						</div>
 

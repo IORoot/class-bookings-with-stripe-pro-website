@@ -15,6 +15,9 @@ export const site = {
 	githubIssues:
 		import.meta.env.PUBLIC_GITHUB_ISSUES_URL ??
 		'https://github.com/IORoot/class-bookings-with-stripe-pro-website/issues',
+	githubDiscussions:
+		import.meta.env.PUBLIC_GITHUB_DISCUSSIONS_URL ??
+		'https://github.com/IORoot/class-bookings-with-stripe-pro-website/discussions',
 	freePluginUrl:
 		import.meta.env.PUBLIC_WP_FREE_PLUGIN_URL ??
 		'https://wordpress.org/plugins/class-bookings-with-stripe/',
