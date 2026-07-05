@@ -38,7 +38,18 @@ npm run preview
 
 ### Stripe Payment Link metadata (optional)
 
-Add metadata `type=renewal` on the renewal Payment Link so webhook extends entitlement correctly.
+Add metadata `type=renewal` on the renewal Payment Link so the webhook treats the payment as a renewal.
+
+### GitHub token for downloads
+
+Create a **fine-grained PAT** scoped to `IORoot/class-bookings-with-stripe-pro` with **Contents: Read-only**. The Netlify function uses it to list releases and stream ZIP assets — purchasers never see the token or repo.
+
+### Download security
+
+- Entitlements stored in **Netlify Blobs** (email + Stripe IDs + expiry)
+- Download links are **JWTs** (30 min, single-use, one active link per email)
+- **Active licence** → latest stable release; **expired** → last stable release from licence window
+- Resend rate limits in Netlify Blobs (5/hour per IP, 1 per 5 min per email)
 
 ## Project structure
 

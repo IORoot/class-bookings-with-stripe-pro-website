@@ -1,5 +1,5 @@
 const ENTITLEMENT_DAYS = 365;
-const TOKEN_HOURS = 72;
+const TOKEN_MINUTES = 30;
 
 export function getEnv(name: string): string {
 	const value = process.env[name];
@@ -19,4 +19,4 @@ export function isEntitlementActive(expiresAt: number): boolean {
 	return Date.now() < expiresAt;
 }
 
-export { ENTITLEMENT_DAYS, TOKEN_HOURS };
+export { ENTITLEMENT_DAYS, TOKEN_MINUTES };

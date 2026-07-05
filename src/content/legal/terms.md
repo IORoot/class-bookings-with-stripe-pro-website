@@ -9,7 +9,9 @@ Class Bookings with Stripe Pro is licensed for use on websites you own or manage
 
 ## Updates and downloads
 
-Your purchase includes one (1) year of updates and download access from the date of payment. After this period, the installed plugin continues to function, but new downloads require renewal at the then-current renewal price.
+Your purchase includes one (1) year of **updates** from the date of payment. During that year, download links deliver the latest stable Pro release.
+
+After your update year ends, the installed plugin continues to function. You may still request download links for the **last release published during your active year**. Newer releases require renewal at the then-current renewal price.
 
 ## Renewal
 

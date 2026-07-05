@@ -1,8 +1,13 @@
 import type { Handler } from '@netlify/functions';
-import { getEntitlement } from './lib/entitlement';
+import { getEntitlement, issueDownloadToken } from './lib/entitlement';
 import { isEntitlementActive } from './lib/env';
-import { createDownloadToken } from './lib/tokens';
 import { sendDownloadEmail } from './lib/email';
+import { clientIp, isRateLimited } from './lib/rate-limit';
+
+const generic = {
+	message:
+		'If a valid licence exists for this email, a new download link has been sent. Check your inbox.'
+};
 
 export const handler: Handler = async (event) => {
 	if (event.httpMethod !== 'POST') {
@@ -22,15 +27,21 @@ export const handler: Handler = async (event) => {
 		};
 	}
 
-	// Always return generic success to avoid email enumeration
-	const generic = {
-		message:
-			'If a valid licence exists for this email, a new download link has been sent. Check your inbox.'
-	};
+	const ip = clientIp(event.headers as Record<string, string | undefined>);
+	const ipLimited = await isRateLimited(`rate:ip:${ip}`, 5, 60 * 60 * 1000);
+	const emailLimited = await isRateLimited(`rate:email:${email}`, 1, 5 * 60 * 1000);
+
+	if (ipLimited || emailLimited) {
+		return {
+			statusCode: 200,
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(generic)
+		};
+	}
 
 	try {
 		const entitlement = await getEntitlement(email);
-		if (!entitlement || !isEntitlementActive(entitlement.expiresAt)) {
+		if (!entitlement) {
 			return {
 				statusCode: 200,
 				headers: { 'Content-Type': 'application/json' },
@@ -38,8 +49,8 @@ export const handler: Handler = async (event) => {
 			};
 		}
 
-		const token = await createDownloadToken(email);
-		await sendDownloadEmail(email, token);
+		const token = await issueDownloadToken(email);
+		await sendDownloadEmail(email, token, isEntitlementActive(entitlement.expiresAt));
 	} catch (err) {
 		console.error('Resend failed', err);
 	}

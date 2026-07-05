@@ -23,7 +23,7 @@ Class Bookings with Stripe Pro is a **standalone** WordPress plugin. You do not 
 
 ## Install the plugin
 
-1. Purchase Pro and download the ZIP from your email link ([resend download](/download) if needed).
+1. Purchase Pro and download the ZIP from your email link — the link is single-use and expires in 30 minutes ([resend download](/download) if needed).
 2. In WordPress go to **Plugins → Add New → Upload Plugin**.
 3. Choose the ZIP and click **Install Now**, then **Activate**.
 4. You should see **Stripe Class Pro** in the admin menu (Classes, Bookings, Reports, Settings, Themes).

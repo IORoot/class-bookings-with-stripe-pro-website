@@ -13,7 +13,7 @@ Marketing and commerce site for **Class Bookings with Stripe Pro**, a WordPress 
 | **Price** | £49.99 GBP (one-time) |
 | **Updates** | 1 year of updates and downloads from purchase date |
 | **Renewal** | £49.99 GBP for another year (manual Payment Link) |
-| **After expiry** | Installed plugin continues to work; downloads stop until renewal |
+| **After expiry** | Installed plugin continues to work; downloads serve last release from licence window until renewal |
 
 ## Repositories
 
@@ -55,10 +55,13 @@ Customer clicks Buy → Stripe Payment Link → checkout.session.completed webho
 
 ### Entitlement rules
 
-- **Active:** `purchasedAt + 365 days > now` (or renewed session extends window)
-- **Download token:** JWT, 72-hour expiry, single-use optional
-- **Always latest:** webhook and resend serve `latest` GitHub Release asset
-- **Resend:** `/download` page → POST email → verify entitlement → Resend email
+- **Active:** `purchasedAt + 365 days > now` (renewal sets a fresh year from payment date)
+- **Expired:** may still download the newest stable release with `published_at ≤ expiresAt`
+- **Download token:** JWT with `jti`, 30-minute expiry, single-use; one active token per email
+- **Active downloads:** latest stable GitHub Release
+- **Resend:** `/download` → POST email → generic response → new link if licence exists
+- **Rate limits:** 5 resends/hour per IP, 1 per email per 5 minutes (Netlify Blobs)
+- **Webhook:** idempotent on `session.id`; stores `stripeCustomerId` + `stripeSessionId`
 
 ### Release pipeline (private repo)
 

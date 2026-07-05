@@ -1,8 +1,12 @@
 import type { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
-import { getEnv } from './lib/env';
-import { saveEntitlement } from './lib/entitlement';
-import { createDownloadToken } from './lib/tokens';
+import { getEnv, isEntitlementActive } from './lib/env';
+import {
+	getEntitlement,
+	isSessionProcessed,
+	issueDownloadToken,
+	saveEntitlement
+} from './lib/entitlement';
 import { sendDownloadEmail } from './lib/email';
 
 const stripe = new Stripe(getEnv('STRIPE_SECRET_KEY'));
@@ -41,14 +45,24 @@ export const handler: Handler = async (event) => {
 		return { statusCode: 400, body: 'No customer email on session' };
 	}
 
+	const existing = await getEntitlement(email);
+	if (existing && isSessionProcessed(existing, session.id)) {
+		return { statusCode: 200, body: JSON.stringify({ received: true, duplicate: true }) };
+	}
+
 	const purchasedAt = Date.now();
 	const isRenewal = session.metadata?.type === 'renewal';
+	const stripeCustomerId =
+		typeof session.customer === 'string' ? session.customer : session.customer?.id;
 
-	await saveEntitlement(email, purchasedAt, session.id, isRenewal);
+	const entitlement = await saveEntitlement(email, purchasedAt, session.id, {
+		isRenewal,
+		stripeCustomerId
+	});
 
 	try {
-		const token = await createDownloadToken(email);
-		await sendDownloadEmail(email, token);
+		const token = await issueDownloadToken(email);
+		await sendDownloadEmail(email, token, isEntitlementActive(entitlement.expiresAt));
 	} catch (err) {
 		console.error('Failed to send download email', err);
 		return { statusCode: 500, body: 'Email delivery failed' };
