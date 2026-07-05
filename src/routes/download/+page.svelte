@@ -38,7 +38,9 @@
 	<div class="mx-auto max-w-md">
 		<h1 class="text-display text-4xl">Resend download</h1>
 		<p class="mt-3 text-sm text-muted">
-			Enter the email used at checkout. We will send a new link if your licence is still active ({site.priceNote.toLowerCase()}).
+			Enter the email used at checkout. We will email a fresh single-use link if a licence exists for
+			that address — active licences get the latest release; expired licences get the last release
+			from your update window.
 		</p>
 
 		<form class="block-card mt-8 space-y-4 p-6" onsubmit={submit}>

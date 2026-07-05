@@ -1,16 +1,17 @@
 import { SignJWT, jwtVerify } from 'jose';
-import { getEnv, TOKEN_HOURS } from './env';
+import { getEnv, TOKEN_MINUTES } from './env';
 
 export type DownloadTokenPayload = {
 	email: string;
+	jti: string;
 };
 
-export async function createDownloadToken(email: string): Promise<string> {
+export async function createDownloadToken(email: string, jti: string): Promise<string> {
 	const secret = new TextEncoder().encode(getEnv('DOWNLOAD_TOKEN_SECRET'));
-	return new SignJWT({ email: email.trim().toLowerCase() })
+	return new SignJWT({ email: email.trim().toLowerCase(), jti })
 		.setProtectedHeader({ alg: 'HS256' })
 		.setIssuedAt()
-		.setExpirationTime(`${TOKEN_HOURS}h`)
+		.setExpirationTime(`${TOKEN_MINUTES}m`)
 		.sign(secret);
 }
 
@@ -18,8 +19,11 @@ export async function verifyDownloadToken(token: string): Promise<DownloadTokenP
 	const secret = new TextEncoder().encode(getEnv('DOWNLOAD_TOKEN_SECRET'));
 	const { payload } = await jwtVerify(token, secret);
 	const email = payload.email;
-	if (typeof email !== 'string') throw new Error('Invalid token payload');
-	return { email };
+	const jti = payload.jti;
+	if (typeof email !== 'string' || typeof jti !== 'string') {
+		throw new Error('Invalid token payload');
+	}
+	return { email, jti };
 }
 
 export function downloadUrl(token: string): string {

@@ -11,10 +11,10 @@
 
 <Seo title={site.name} description={site.description} path="/" />
 
-<section class="relative border-b border-border" use:revealHero>
+<section class="relative border-b border-border bg-black" use:revealHero>
 	<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-		<div class="absolute -left-32 top-20 h-72 w-72 rounded-full bg-teal/20 blur-[100px]"></div>
-		<div class="absolute -right-20 top-40 h-64 w-64 rounded-full bg-teal-deep/25 blur-[90px]"></div>
+		<div class="absolute -left-32 top-20 h-200 w-200 rounded-full bg-teal/20 blur-[100px]"></div>
+		<div class="absolute -right-20 top-40 h-200 w-200 rounded-full bg-teal-deep/25 blur-[90px]"></div>
 		<div
 			class="absolute inset-0 opacity-[0.03]"
 			style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 32px 32px;"
