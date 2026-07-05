@@ -26,6 +26,11 @@ export const site = {
 	siteUrl: import.meta.env.PUBLIC_SITE_URL ?? 'https://class-bookings-pro.netlify.app'
 } as const;
 
+/** True when a Stripe Payment Link URL was set at build time. */
+export function isStripeCheckoutUrl(url: string): boolean {
+	return url.startsWith('https://buy.stripe.com/') || url.startsWith('https://donate.stripe.com/');
+}
+
 export const nav = [
 	{ href: '/', label: 'Home' },
 	{ href: '/details', label: 'Details' },

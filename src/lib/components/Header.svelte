@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { nav, site } from '$lib/config';
+	import StripeBuyLink from '$lib/components/StripeBuyLink.svelte';
 
 	let mobileOpen = $state(false);
 </script>
@@ -33,9 +34,9 @@
 		</nav>
 
 		<div class="flex items-center gap-2">
-			<a href={site.stripePaymentLink} class="btn-primary hidden text-xs sm:inline-flex sm:text-sm">
+			<StripeBuyLink class="btn-primary hidden text-xs sm:inline-flex sm:text-sm">
 				Buy — {site.price}
-			</a>
+			</StripeBuyLink>
 			<button
 				type="button"
 				class="rounded-lg border border-border p-2 text-muted md:hidden"
@@ -65,7 +66,7 @@
 					{item.label}
 				</a>
 			{/each}
-			<a href={site.stripePaymentLink} class="btn-primary mt-2 w-full">Buy — {site.price}</a>
+			<StripeBuyLink class="btn-primary mt-2 w-full">Buy — {site.price}</StripeBuyLink>
 		</nav>
 	{/if}
 </header>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
+	import StripeBuyLink from '$lib/components/StripeBuyLink.svelte';
 	import { site } from '$lib/config';
 </script>
 
@@ -10,7 +11,7 @@
 		<h1 class="text-display text-4xl">Checkout cancelled</h1>
 		<p class="mt-4 text-muted">No charge was made. You can return when you are ready.</p>
 		<div class="mt-8 flex flex-wrap justify-center gap-3">
-			<a href={site.stripePaymentLink} class="btn-primary">Buy Pro — {site.price}</a>
+			<StripeBuyLink class="btn-primary">Buy Pro — {site.price}</StripeBuyLink>
 			<a href="/details" class="btn-secondary">Compare features</a>
 		</div>
 	</div>
