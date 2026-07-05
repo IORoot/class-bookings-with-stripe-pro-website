@@ -4,6 +4,7 @@
 	import HeroVideo from '$lib/components/HeroVideo.svelte';
 	import ClickableImage from '$lib/components/ClickableImage.svelte';
 	import ProBadge from '$lib/components/ProBadge.svelte';
+	import StripeBuyLink from '$lib/components/StripeBuyLink.svelte';
 	import { site } from '$lib/config';
 	import { features, benefits, mainFeatures, examples } from '$lib/features';
 	import { reveal, revealHero } from '$lib/actions/reveal';
@@ -44,7 +45,7 @@
 				{site.description}
 			</p>
 			<div data-hero-item class="mt-8 flex flex-wrap gap-3">
-				<a href={site.stripePaymentLink} class="btn-primary">Buy Pro — {site.price}</a>
+				<StripeBuyLink class="btn-primary">Buy Pro — {site.price}</StripeBuyLink>
 				<a href="/details" class="btn-secondary">Compare with Free</a>
 			</div>
 			<ul data-hero-item class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">

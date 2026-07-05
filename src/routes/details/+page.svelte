@@ -3,6 +3,7 @@
 	import ComparisonTable from '$lib/components/ComparisonTable.svelte';
 	import FeatureSections from '$lib/components/FeatureSections.svelte';
 	import BuyCTA from '$lib/components/BuyCTA.svelte';
+	import StripeBuyLink from '$lib/components/StripeBuyLink.svelte';
 	import { site } from '$lib/config';
 	import { featureSections } from '$lib/detailFeatures';
 	import { reveal } from '$lib/actions/reveal';
@@ -46,7 +47,7 @@
 					Everything in Free, plus appointments, scheduled reminders and post-class emails,
 					booking themes with live preview, and one year of updates.
 				</p>
-				<a href={site.stripePaymentLink} class="btn-primary mt-4 inline-flex">Buy Pro</a>
+				<StripeBuyLink class="btn-primary mt-4 inline-flex">Buy Pro</StripeBuyLink>
 			</div>
 		</div>
 

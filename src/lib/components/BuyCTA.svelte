@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { site } from '$lib/config';
+	import StripeBuyLink from '$lib/components/StripeBuyLink.svelte';
 
 	let { compact = false }: { compact?: boolean } = $props();
 </script>
@@ -14,7 +15,7 @@
 		<p class="mt-1 text-sm text-muted">{site.priceNote}</p>
 	</div>
 	<div class="flex flex-col gap-2 sm:flex-row">
-		<a href={site.stripePaymentLink} class="btn-primary">Buy Pro</a>
-		<a href={site.stripeRenewalLink} class="btn-secondary">Renew licence</a>
+		<StripeBuyLink class="btn-primary">Buy Pro</StripeBuyLink>
+		<StripeBuyLink kind="renewal" class="btn-secondary">Renew licence</StripeBuyLink>
 	</div>
 </div>
