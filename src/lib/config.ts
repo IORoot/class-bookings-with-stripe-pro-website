@@ -1,3 +1,28 @@
+type StripeMode = 'test' | 'live';
+
+function devDirectLink(kind: 'purchase' | 'renewal'): string | undefined {
+	if (!import.meta.env.DEV) return undefined;
+
+	const mode: StripeMode = import.meta.env.PUBLIC_STRIPE_MODE === 'test' ? 'test' : 'live';
+	const suffix = mode === 'test' ? '_TEST' : '_LIVE';
+
+	if (kind === 'purchase') {
+		return (
+			import.meta.env[`PUBLIC_STRIPE_PAYMENT_LINK${suffix}`] ??
+			import.meta.env.PUBLIC_STRIPE_PAYMENT_LINK
+		);
+	}
+
+	return (
+		import.meta.env[`PUBLIC_STRIPE_RENEWAL_LINK${suffix}`] ??
+		import.meta.env.PUBLIC_STRIPE_RENEWAL_LINK
+	);
+}
+
+function checkoutHref(kind: 'purchase' | 'renewal'): string {
+	return devDirectLink(kind) ?? (kind === 'purchase' ? '/api/buy' : '/api/renew');
+}
+
 export const site = {
 	name: 'Class Bookings with Stripe Pro',
 	shortName: 'CBFS Pro',
@@ -21,14 +46,19 @@ export const site = {
 	freePluginUrl:
 		import.meta.env.PUBLIC_WP_FREE_PLUGIN_URL ??
 		'https://wordpress.org/plugins/class-bookings-with-stripe/',
-	stripePaymentLink: import.meta.env.PUBLIC_STRIPE_PAYMENT_LINK ?? '#',
-	stripeRenewalLink: import.meta.env.PUBLIC_STRIPE_RENEWAL_LINK ?? '#',
+	/** Runtime redirect — uses STRIPE_MODE on the server (no rebuild to switch test/live). */
+	stripePaymentLink: checkoutHref('purchase'),
+	stripeRenewalLink: checkoutHref('renewal'),
 	siteUrl: import.meta.env.PUBLIC_SITE_URL ?? 'https://class-bookings-pro.netlify.app'
 } as const;
 
-/** True when a Stripe Payment Link URL was set at build time. */
 export function isStripeCheckoutUrl(url: string): boolean {
-	return url.startsWith('https://buy.stripe.com/') || url.startsWith('https://donate.stripe.com/');
+	return (
+		url === '/api/buy' ||
+		url === '/api/renew' ||
+		url.startsWith('https://buy.stripe.com/') ||
+		url.startsWith('https://donate.stripe.com/')
+	);
 }
 
 export const nav = [

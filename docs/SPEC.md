@@ -74,22 +74,42 @@ Documented in private repo; website reads `latest` via `GITHUB_TOKEN`.
 
 ## Stripe configuration
 
-Two Payment Links (same price, same success/cancel URLs):
+Two Payment Links per mode (test and live), same price, same success/cancel URLs:
 
-| Link | Purpose | Env var |
-|------|---------|---------|
-| Purchase | New customers | `PUBLIC_STRIPE_PAYMENT_LINK` |
-| Renewal | Extend entitlement 1 year | `PUBLIC_STRIPE_RENEWAL_LINK` |
+| Link | Purpose | Env vars |
+|------|---------|----------|
+| Purchase | New customers | `STRIPE_PAYMENT_LINK_TEST` / `STRIPE_PAYMENT_LINK_LIVE` |
+| Renewal | Extend entitlement 1 year (`metadata.type=renewal`) | `STRIPE_RENEWAL_LINK_TEST` / `STRIPE_RENEWAL_LINK_LIVE` |
+
+Buy buttons hit `/api/buy` and `/api/renew`, which redirect at **runtime** using `STRIPE_MODE` — no rebuild required to switch test/live.
 
 Success URL: `{SITE_URL}/purchase/success`  
 Cancel URL: `{SITE_URL}/purchase/cancelled`
+
+Webhook endpoint (both test and live dashboards): `{SITE_URL}/api/stripe-webhook`  
+Event: `checkout.session.completed`
+
+### `STRIPE_MODE`
+
+| Value | Behaviour |
+|-------|-----------|
+| `live` (default) | Uses `*_LIVE` credentials and Payment Links |
+| `test` | Uses `*_TEST` credentials and Payment Links |
+
+Set both test and live credential sets in Netlify env vars. Flip `STRIPE_MODE` in the Netlify UI to test purchases on the same deployment. A banner appears when `STRIPE_MODE=test`.
+
+For local `npm run dev` without `netlify dev`, optional `PUBLIC_STRIPE_MODE` + `PUBLIC_STRIPE_*_TEST/LIVE` fall back to direct Payment Link URLs.
 
 ### Server environment variables (Netlify)
 
 | Variable | Purpose |
 |----------|---------|
-| `STRIPE_SECRET_KEY` | API + entitlement lookup |
-| `STRIPE_WEBHOOK_SECRET` | Webhook signature verification |
+| `STRIPE_MODE` | `test` or `live` (default `live`) |
+| `STRIPE_SECRET_KEY_TEST` / `STRIPE_SECRET_KEY_LIVE` | Stripe API secret for each mode |
+| `STRIPE_WEBHOOK_SECRET_TEST` / `STRIPE_WEBHOOK_SECRET_LIVE` | Webhook signature verification |
+| `STRIPE_PAYMENT_LINK_TEST` / `STRIPE_PAYMENT_LINK_LIVE` | Purchase Payment Link |
+| `STRIPE_RENEWAL_LINK_TEST` / `STRIPE_RENEWAL_LINK_LIVE` | Renewal Payment Link |
+| `STRIPE_SECRET_KEY` / `STRIPE_WEBHOOK_SECRET` | Optional legacy fallback when `STRIPE_MODE=live` |
 | `RESEND_API_KEY` | Transactional email |
 | `EMAIL_FROM` | Default `Class Bookings Pro <pro@ioroot.com>` |
 | `GITHUB_TOKEN` | Fine-grained PAT: `contents:read` on private repo |

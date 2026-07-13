@@ -19,6 +19,14 @@ npm run dev
 
 Copy `.env.example` to `.env` and set public URLs for local testing.
 
+For Stripe checkout locally, use `netlify dev` (so `/api/buy` works) or set `PUBLIC_STRIPE_MODE` and the `PUBLIC_STRIPE_*_TEST/LIVE` fallbacks for plain `npm run dev`.
+
+## Test vs live Stripe (one deployment)
+
+Set **both** test and live credential sets in Netlify (see `.env.example`). Toggle `STRIPE_MODE` between `test` and `live` in the Netlify UI — no redeploy needed. Buy buttons use `/api/buy` and `/api/renew`, which read `STRIPE_MODE` at runtime.
+
+Register the same webhook URL in both Stripe test and live dashboards: `https://YOUR_SITE/api/stripe-webhook`.
+
 ## Build
 
 ```bash

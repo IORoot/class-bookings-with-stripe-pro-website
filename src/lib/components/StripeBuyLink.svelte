@@ -23,7 +23,7 @@
 {:else}
 	<span
 		class="{className} cursor-not-allowed opacity-60"
-		title="Set PUBLIC_STRIPE_PAYMENT_LINK in .env (local) or Netlify env vars, then restart or redeploy."
+		title="Configure STRIPE_PAYMENT_LINK_TEST/LIVE for the current STRIPE_MODE (server) or use netlify dev."
 	>
 		{@render children()}
 	</span>

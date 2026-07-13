@@ -1,6 +1,6 @@
 import type { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
-import { getEnv, isEntitlementActive } from './lib/env';
+import { isEntitlementActive } from './lib/env';
 import {
 	getEntitlement,
 	isSessionProcessed,
@@ -8,8 +8,7 @@ import {
 	saveEntitlement
 } from './lib/entitlement';
 import { sendDownloadEmail } from './lib/email';
-
-const stripe = new Stripe(getEnv('STRIPE_SECRET_KEY'));
+import { getWebhookSecretsForVerification } from './lib/stripe-config';
 
 export const handler: Handler = async (event) => {
 	if (event.httpMethod !== 'POST') {
@@ -22,16 +21,28 @@ export const handler: Handler = async (event) => {
 	}
 
 	let session: Stripe.Checkout.Session;
+	let webhookMode: 'test' | 'live' | undefined;
 
 	try {
-		const webhookEvent = stripe.webhooks.constructEvent(
-			event.body,
-			sig,
-			getEnv('STRIPE_WEBHOOK_SECRET')
-		);
+		let webhookEvent: Stripe.Event | null = null;
+
+		for (const secret of getWebhookSecretsForVerification()) {
+			try {
+				webhookEvent = Stripe.webhooks.constructEvent(event.body, sig, secret);
+				break;
+			} catch {
+				/* try next secret */
+			}
+		}
+
+		if (!webhookEvent) {
+			throw new Error('Webhook signature verification failed');
+		}
+
+		webhookMode = webhookEvent.livemode ? 'live' : 'test';
 
 		if (webhookEvent.type !== 'checkout.session.completed') {
-			return { statusCode: 200, body: JSON.stringify({ received: true }) };
+			return { statusCode: 200, body: JSON.stringify({ received: true, mode: webhookMode }) };
 		}
 
 		session = webhookEvent.data.object as Stripe.Checkout.Session;
@@ -47,7 +58,10 @@ export const handler: Handler = async (event) => {
 
 	const existing = await getEntitlement(email);
 	if (existing && isSessionProcessed(existing, session.id)) {
-		return { statusCode: 200, body: JSON.stringify({ received: true, duplicate: true }) };
+		return {
+			statusCode: 200,
+			body: JSON.stringify({ received: true, duplicate: true, mode: webhookMode })
+		};
 	}
 
 	const purchasedAt = Date.now();
@@ -68,5 +82,5 @@ export const handler: Handler = async (event) => {
 		return { statusCode: 500, body: 'Email delivery failed' };
 	}
 
-	return { statusCode: 200, body: JSON.stringify({ received: true }) };
+	return { statusCode: 200, body: JSON.stringify({ received: true, mode: webhookMode }) };
 };
